@@ -52,7 +52,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
                 title: Text(
                   'My Projects',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -64,7 +64,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
                 title: Text(
                   'My Tasks',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -76,7 +76,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
                 title: Text(
                   'Community',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -88,7 +88,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
                 title: Text(
                   'chats',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -100,7 +100,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
                 title: Text(
                   'Profile',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
