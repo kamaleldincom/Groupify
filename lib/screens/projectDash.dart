@@ -303,286 +303,295 @@ class _ProjectDashState extends State<ProjectDash> {
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (context, index){
-                  return Container(
+                  return GestureDetector(
 
-                    margin: EdgeInsets.only(right: 15),
-                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    onTap: (){
+                      Navigator.pushNamed(
+                        context, '/boardDash',
+                        // arguments: widget.usertype
+                      );
+                    },
+                    child: Container(
 
-                    // height: 100,
+                      margin: EdgeInsets.only(right: 15),
+                      padding: EdgeInsets.symmetric(horizontal: 8),
 
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.grey[800],
-                    ),
+                      // height: 100,
 
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Front End Development",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: Color(0xFEFEFEFE),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  
-                                  SizedBox(height: 5,),
-                                  Text(
-                                    "Created by Me, at 01/4/2020",
-                                    overflow: TextOverflow.ellipsis,
-                                    // maxLines: 3,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            
-                            IconButton(
-                              icon: Icon(Icons.more_vert, color: Colors.white,), onPressed: () {  }, 
-                            ),
-                          ]
-                        ),
-                        Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 90, // 83
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          // border: Border.all(
-                          //   color: Colors.grey, //                   <--- border color
-                          //   width: 1,
-                          // ),
-                          color: Color(0xFF313131)
-                        ),
-                        child: Column(
-                          
-                          children: [
-                            Text(
-                              "Progress",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 8,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            Container(
-                              // width: 350,
-                              margin: EdgeInsets.symmetric(vertical: 6,),
-                              child: LinearPercentIndicator( //leaner progress bar
-                                animation: true,
-                                animationDuration: 1000,
-                                lineHeight: 14.0,
-                                percent:percent/100,
-                                center: Text(
-                                  percent.toString() + "%",
-                                  style: TextStyle(
-                                      fontSize: 9.0,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black
-                                  ),
-                                ),
-                                linearStrokeCap: LinearStrokeCap.roundAll,
-                                progressColor: Colors.white60,
-                                backgroundColor: Colors.grey[700],
-                              ),
-                            ),
-                            SizedBox(height: 5,),
-                            // Text(
-                            //   percent.toString() + "%",
-                            //   style: TextStyle(
-                            //       fontSize: 8.0,
-                            //       fontWeight: FontWeight.w600,
-                            //       color: Colors.grey
-                            //   ),
-                            // ),
-                            Container(
-                              // width: 200,
-                              margin: EdgeInsets.symmetric(vertical: 6,),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.green, 
-                                    ),
-                                    padding: EdgeInsets.symmetric(horizontal: 5),
-                                    width: MediaQuery.of(context).size.width*0.4-64, /// missing algo
-                                    height: 14,
-                                    child: Center(
-                                      child: Text(
-                                        "20 Finished Tasks",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 9.0,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black
-                                      ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.red, 
-                                    ),
-                                    padding: EdgeInsets.symmetric(horizontal: 5),
-                                    width: MediaQuery.of(context).size.width*0.3-64, /// missing algo
-                                    height: 14,
-                                    child: Center(
-                                      child: Text(
-                                        "15 Pending Tasks",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 9.0,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black
-                                      ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.orange, 
-                                    ),
-                                    padding: EdgeInsets.symmetric(horizontal: 5),
-                                    width: MediaQuery.of(context).size.width*0.3-64, /// missing algo
-                                    height: 14,
-                                    child: Center(
-                                      child: Text(
-                                        "15 Ongoing Tasks",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 9.0,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black
-                                      ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            
-                          ],
-                        ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color: Colors.grey[800],
                       ),
-                      SizedBox(height: 12,),
-                      Text(
-                        "Activities",
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.white54,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(height: 8,),
-                      Container(
-                        child: Stack(
-                          alignment: Alignment.center,
-                          textDirection: TextDirection.rtl,
-                          fit: StackFit.loose,
-                          overflow: Overflow.visible,
-                          // clipBehavior: Clip.,
-                          children: [
-                            Positioned(
-                              top: 10.0,
-                              // bottom: 0.0,
-                              child: Container(
-                                width: 260,
-                                height: 60,
-                                
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF353535),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              // top: 10.0,
-                              // right: 0.0,
-                              // bottom: 15,
-                              child: Container(
-                                width: 320,
-                                height: 60,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF313131),
-                                ),
+
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 8.0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Ali Madani successfully finished Profile page front end",
+                                      "Front End Development",
                                       overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
                                       style: TextStyle(
-                                        
-                                        fontSize: 10.0,
+                                        color: Color(0xFEFEFEFE),
+                                        fontSize: 12,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.grey[400]
+                                      ),
                                     ),
-                                    ),
-                                    SizedBox(height: 5),
+                                    
+                                    SizedBox(height: 5,),
                                     Text(
-                                      "Yesterday, at 21:54",
+                                      "Created by Me, at 01/4/2020",
+                                      overflow: TextOverflow.ellipsis,
+                                      // maxLines: 3,
                                       style: TextStyle(
-                                        fontSize: 8.0,
-                                        fontWeight: FontWeight.w300,
-                                        color: Colors.grey[400]
-                                    ),
+                                        color: Colors.grey,
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: -10.0,
-                              right: 0.0,
-                              child: Container(
-                                width: 50,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                                  color: Colors.grey[400],
+                              
+                              IconButton(
+                                icon: Icon(Icons.more_vert, color: Colors.white,), onPressed: () {  }, 
+                              ),
+                            ]
+                          ),
+                          Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 90, // 83
+                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            // border: Border.all(
+                            //   color: Colors.grey, //                   <--- border color
+                            //   width: 1,
+                            // ),
+                            color: Color(0xFF313131)
+                          ),
+                          child: Column(
+                            
+                            children: [
+                              Text(
+                                "Progress",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Colors.white54,
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w400,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "33 more..",
+                              ),
+                              Container(
+                                // width: 350,
+                                margin: EdgeInsets.symmetric(vertical: 6,),
+                                child: LinearPercentIndicator( //leaner progress bar
+                                  animation: true,
+                                  animationDuration: 1000,
+                                  lineHeight: 14.0,
+                                  percent:percent/100,
+                                  center: Text(
+                                    percent.toString() + "%",
                                     style: TextStyle(
-                                      fontSize: 8.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.grey[800]
+                                        fontSize: 9.0,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black
+                                    ),
                                   ),
+                                  linearStrokeCap: LinearStrokeCap.roundAll,
+                                  progressColor: Colors.white60,
+                                  backgroundColor: Colors.grey[700],
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              // Text(
+                              //   percent.toString() + "%",
+                              //   style: TextStyle(
+                              //       fontSize: 8.0,
+                              //       fontWeight: FontWeight.w600,
+                              //       color: Colors.grey
+                              //   ),
+                              // ),
+                              Container(
+                                // width: 200,
+                                margin: EdgeInsets.symmetric(vertical: 6,),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                                        color: Colors.green, 
+                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      width: MediaQuery.of(context).size.width*0.4-64, /// missing algo
+                                      height: 14,
+                                      child: Center(
+                                        child: Text(
+                                          "20 Finished Tasks",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 9.0,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black
+                                        ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                                        color: Colors.red, 
+                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      width: MediaQuery.of(context).size.width*0.3-64, /// missing algo
+                                      height: 14,
+                                      child: Center(
+                                        child: Text(
+                                          "15 Pending Tasks",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 9.0,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black
+                                        ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                                        color: Colors.orange, 
+                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      width: MediaQuery.of(context).size.width*0.3-64, /// missing algo
+                                      height: 14,
+                                      child: Center(
+                                        child: Text(
+                                          "15 Ongoing Tasks",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 9.0,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black
+                                        ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 12,),
+                        Text(
+                          "Activities",
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 8,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(height: 8,),
+                        Container(
+                          child: Stack(
+                            alignment: Alignment.center,
+                            textDirection: TextDirection.rtl,
+                            fit: StackFit.loose,
+                            overflow: Overflow.visible,
+                            // clipBehavior: Clip.,
+                            children: [
+                              Positioned(
+                                top: 10.0,
+                                // bottom: 0.0,
+                                child: Container(
+                                  width: 260,
+                                  height: 60,
+                                  
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    color: Color(0xFF353535),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                // top: 10.0,
+                                // right: 0.0,
+                                // bottom: 15,
+                                child: Container(
+                                  width: 320,
+                                  height: 60,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    color: Color(0xFF313131),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Ali Madani successfully finished Profile page front end",
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                          
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.grey[400]
+                                      ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        "Yesterday, at 21:54",
+                                        style: TextStyle(
+                                          fontSize: 8.0,
+                                          fontWeight: FontWeight.w300,
+                                          color: Colors.grey[400]
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                top: -10.0,
+                                right: 0.0,
+                                child: Container(
+                                  width: 50,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    color: Colors.grey[400],
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "33 more..",
+                                      style: TextStyle(
+                                        fontSize: 8.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.grey[800]
+                                    ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                        
+                        ],
                       ),
-                      
-                      ],
                     ),
                   );
                 },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/screens/boardDash.dart';
 import 'package:groupify/screens/chats.dart';
 import 'package:groupify/screens/community.dart';
 import 'package:groupify/screens/my-projects.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/chats': (context) => Chats(),
         '/profile': (context) => Profile(),
         '/projectDash': (context) => ProjectDash(),
+        '/boardDash': (context) => BoardDash(),
       },
     );
   }
