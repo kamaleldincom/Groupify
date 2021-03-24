@@ -39,9 +39,7 @@ class _MyProjectsState extends State<MyProjects> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Center(
-          child: Text('My Projects'),
-        ),
+        title: Text('My Projects'),
 
         actions: [
           Container(
@@ -443,17 +441,18 @@ class _MyProjectsState extends State<MyProjects> {
                       GestureDetector(
                         onTap: (){
                           Navigator.pushNamed(
-                            context, '/profile',
+                            context, '/projectDash',
                             // arguments: widget.usertype
                           );
                         },
                         child: Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          // width: MediaQuery.of(context).size.width,
-                          // height: 30,
+                          margin: EdgeInsets.only(bottom: 30),
+                          // padding: EdgeInsets.only(top:20, bottom: 10),
+                          width: 200,
+                          height: 40,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
                                 "See More",
@@ -463,10 +462,9 @@ class _MyProjectsState extends State<MyProjects> {
                                   color: Color(0xFEFEFEFE)
                                 ),
                               ),
-                              IconButton(
-                                  
-                                icon: Icon(Icons.arrow_forward_ios, color: Color(0xFEFEFEFE), size: 10,), onPressed: () {  }, 
-                              ),
+                              SizedBox(width: 5),
+                              Icon(Icons.arrow_forward_ios, color: Color(0xFEFEFEFE), size: 10,),
+                              
 
                             ],
                           ),

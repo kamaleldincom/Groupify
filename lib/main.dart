@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/screens/chats.dart';
+import 'package:groupify/screens/community.dart';
 import 'package:groupify/screens/my-projects.dart';
 import 'package:groupify/screens/my-tasks.dart';
+import 'package:groupify/screens/profile.dart';
+import 'package:groupify/screens/projectDash.dart';
 import 'package:groupify/wrapper.dart';
 // import 'package:provider/provider.dart';
 
@@ -39,6 +43,10 @@ class MyApp extends StatelessWidget {
         '/wrapper': (context) => Wrapper(),
         '/my-projects': (context) => MyProjects(),
         '/my-tasks': (context) => MyTasks(),
+        '/community': (context) => Community(),
+        '/chats': (context) => Chats(),
+        '/profile': (context) => Profile(),
+        '/projectDash': (context) => ProjectDash(),
       },
     );
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/screens/chats.dart';
+import 'package:groupify/screens/community.dart';
 import 'package:groupify/screens/my-projects.dart';
 import 'package:groupify/screens/my-tasks.dart';
+import 'package:groupify/screens/profile.dart';
 import 'package:provider/provider.dart';
 
 class BtmNavBar extends StatefulWidget {
@@ -22,6 +25,9 @@ class _BtmNavBarState extends State<BtmNavBar> {
     final List<Widget> _pages = [
       MyProjects(),
       MyTasks(),
+      Community(),
+      Chats(),
+      Profile(),
       // Notifications(),
       // Profile('Rider'),
     ];
