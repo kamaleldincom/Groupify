@@ -147,25 +147,27 @@ class _MyProjectsState extends State<MyProjects> {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.all(Radius.circular(5)),
                                     border: Border.all(
-                                      color: Colors.grey, //                   <--- border color
+                                      color: Colors.blueAccent, //                   <--- border color
                                       width: 1.5,
                                     ),
                                   ),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.group,
-                                        size: 16.0,
-                                        color: Colors.white54,
+                                        size: 12.0,
+                                        color: Colors.blueAccent,
                                       ),
+                                      SizedBox(width: 4,),
                                       SizedBox(
                                         width: 45,
                                         child: Text( 
                                         "4 Members",    //change with backend later
                                         overflow: TextOverflow.ellipsis,  // .......................
                                         style: TextStyle(
-                                          color: Colors.white54,
+                                          color: Colors.blueAccent,
                                           fontSize: 8,
                                           fontWeight: FontWeight.w400,
                                         ),

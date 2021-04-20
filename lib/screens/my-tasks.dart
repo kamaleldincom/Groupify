@@ -95,7 +95,7 @@ class _MyTasksState extends State<MyTasks> {
                     decoration: BoxDecoration(
 
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xFFFEFEFE),
+                      color: Colors.grey[900],
                     ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,17 +111,17 @@ class _MyTasksState extends State<MyTasks> {
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
-                                  "- Front End Development",
+                                  "Front End Development Board",
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.blueAccent,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -295,7 +295,7 @@ class _MyTasksState extends State<MyTasks> {
                     decoration: BoxDecoration(
 
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xFFFEFEFE),
+                      color: Colors.grey[900],
                     ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -311,17 +311,17 @@ class _MyTasksState extends State<MyTasks> {
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
-                                  "- Front End Development",
+                                  "Front End Development",
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.blueAccent,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -496,7 +496,7 @@ class _MyTasksState extends State<MyTasks> {
                     decoration: BoxDecoration(
 
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color(0xFFFEFEFE),
+                      color: Colors.grey[900],
                     ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -512,17 +512,17 @@ class _MyTasksState extends State<MyTasks> {
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
-                                  "- Front End Development",
+                                  "Front End Development",
                                   overflow: TextOverflow.ellipsis,
                                   // maxLines: 2,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.blueAccent,
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
                                   ),
