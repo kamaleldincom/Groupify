@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:groupify/screens/boardDash.dart';
+import 'package:groupify/screens/chatroom.dart';
 import 'package:groupify/screens/chats.dart';
 import 'package:groupify/screens/community.dart';
+import 'package:groupify/screens/members.dart';
 import 'package:groupify/screens/my-projects.dart';
 import 'package:groupify/screens/my-tasks.dart';
 import 'package:groupify/screens/profile.dart';
@@ -9,8 +11,7 @@ import 'package:groupify/screens/projectDash.dart';
 import 'package:groupify/wrapper.dart';
 // import 'package:provider/provider.dart';
 
-void main() =>  runApp(MyApp());
-
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -36,7 +37,6 @@ class MyApp extends StatelessWidget {
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
-        
       ),
       debugShowCheckedModeBanner: false,
       home: Wrapper(),
@@ -49,6 +49,8 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => Profile(),
         '/projectDash': (context) => ProjectDash(),
         '/boardDash': (context) => BoardDash(),
+        '/chatroom': (context) => ChatRoom(),
+        '/members': (context) => Members(),
       },
     );
   }
