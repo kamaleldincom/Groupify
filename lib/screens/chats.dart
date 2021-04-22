@@ -17,15 +17,18 @@ class _ChatsState extends State<Chats> {
           Container(
             // padding: EdgeInsets.all(8),
             child: GestureDetector(
-              onTap: (){
-              Navigator.pushNamed(
-                context, '/newpost',
-                // arguments: widget.usertype
-              );
-            },
+              onTap: () {
+                Navigator.pushNamed(
+                  context, '/newpost',
+                  // arguments: widget.usertype
+                );
+              },
               child: IconButton(
-                
-                icon: Icon(Icons.add, color: Colors.white,), onPressed: () {  }, 
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                onPressed: () {},
               ),
             ),
           )
@@ -42,23 +45,29 @@ class _ChatsState extends State<Chats> {
         //       );
         //     },
         //       child: IconButton(
-                
-        //         icon: Icon(Icons.add, color: Colors.white,), onPressed: () {  }, 
+
+        //         icon: Icon(Icons.add, color: Colors.white,), onPressed: () {  },
         //       ),
         //     ),
         //   )
         // ],
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              // itemExtent: 100.0,
-              shrinkWrap: true,
-              itemCount: 5,
-              itemBuilder: (context, index){
-                return Container(
+      body: Column(children: <Widget>[
+        Expanded(
+          child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            // itemExtent: 100.0,
+            shrinkWrap: true,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context, '/chatroom',
+                    // arguments: widget.usertype
+                  );
+                },
+                child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   margin: EdgeInsets.only(bottom: 20),
                   child: Row(
@@ -66,64 +75,65 @@ class _ChatsState extends State<Chats> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: (){
-                              Navigator.pushNamed(
-                                context, '/profile', // change later
-                                // arguments: widget.usertype
-                              );
-                            },
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context, '/profile', // change later
+                                  // arguments: widget.usertype
+                                );
+                              },
                               child: CircleAvatar(
-                              backgroundColor: Colors.grey,
-                              child: Text("AK"),
-                              radius: 24.0,
+                                backgroundColor: Colors.grey,
+                                child: Text("AK"),
+                                radius: 24.0,
+                              ),
                             ),
-                          ),
-                          SizedBox( width: 12,),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width*0.6,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Application Development Project",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: Color(0xFEFEFEFE),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                Text(
-                                  "Front End Development Board",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: Colors.blueAccent,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  "Loai: You can find some inspirations for that part in uplabs or dribble. or you could also",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
+                            SizedBox(
+                              width: 12,
                             ),
-                          ),
-                          // SizedBox( width: 8,),
-                        ]
-                      ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Application Development Project",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Color(0xFEFEFEFE),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Front End Development Board",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Loai: You can find some inspirations for that part in uplabs or dribble. or you could also",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // SizedBox( width: 8,),
+                          ]),
                       SizedBox(
                         width: 60,
                         child: Column(
@@ -144,32 +154,31 @@ class _ChatsState extends State<Chats> {
                               width: 22,
                               height: 16,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
                                 color: Colors.blueAccent,
                               ),
                               child: Center(
                                 child: Text(
                                   "3",
                                   style: TextStyle(
-                                    fontSize: 10.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black
-                                ),
+                                      fontSize: 10.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black),
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                    
                     ],
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
-        ]
-      ),
+        ),
+      ]),
     );
   }
 }
