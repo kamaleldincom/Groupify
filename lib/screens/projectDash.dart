@@ -266,31 +266,46 @@ class _ProjectDashState extends State<ProjectDash> {
                   // IconButton(
                   //   icon: Icon(Icons.add, color: Colors.white,), onPressed: () {  },
                   // ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context, '/profile',
-                        // arguments: widget.usertype
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(right: 16),
-                      width: 50,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        color: Colors.grey[400],
-                      ),
-                      child: Center(
-                        child: Text(
-                          "33 more..",
-                          style: TextStyle(
-                              fontSize: 8.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.grey[800]),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context, '/profile',
+                            // arguments: widget.usertype
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 16),
+                          width: 50,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            color: Colors.grey[400],
+                          ),
+                          child: Center(
+                            child: Text(
+                              "4 more..",
+                              style: TextStyle(
+                                  fontSize: 8.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.grey[800]),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
+                      // GestureDetector(
+                      //   onTap: (){},
+
+                      // )
+                    ],
                   ),
                 ],
               ),

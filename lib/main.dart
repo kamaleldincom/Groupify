@@ -3,6 +3,7 @@ import 'package:groupify/screens/boardDash.dart';
 import 'package:groupify/screens/chatroom.dart';
 import 'package:groupify/screens/chats.dart';
 import 'package:groupify/screens/community.dart';
+import 'package:groupify/screens/login.dart';
 import 'package:groupify/screens/members.dart';
 import 'package:groupify/screens/my-projects.dart';
 import 'package:groupify/screens/my-tasks.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         '/boardDash': (context) => BoardDash(),
         '/chatroom': (context) => ChatRoom(),
         '/members': (context) => Members(),
+        '/login': (context) => Login(),
       },
     );
   }

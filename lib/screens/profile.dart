@@ -27,17 +27,38 @@ class _ProfileState extends State<Profile> {
                   builder: (BuildContext bc) {
                     return Container(
                       margin: EdgeInsets.only(bottom: 40),
-                      height: MediaQuery.of(context).size.height / 5,
+                      height: MediaQuery.of(context).size.height / 4,
                       child: Column(children: <Widget>[
+                        //modal title
+                        //
+                        //
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: Text("Settings",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              )),
+                          padding: const EdgeInsets.fromLTRB(20, 10, 8, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Settings",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  )),
+                              IconButton(
+                                icon: Icon(
+                                  Icons.close,
+                                  color: Colors.grey,
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
+
+                        //T&C
+                        //
+                        //
                         Padding(
                           padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                           child: SizedBox(
@@ -89,6 +110,10 @@ class _ProfileState extends State<Profile> {
                                 )),
                           ),
                         ),
+
+                        //Logout
+                        //
+                        //
                         Padding(
                           padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                           child: SizedBox(
@@ -122,7 +147,7 @@ class _ProfileState extends State<Profile> {
                   });
             },
             icon: Icon(
-              Icons.settings,
+              Icons.menu,
               // color: Colors.white,
             ),
           )
