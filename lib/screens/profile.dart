@@ -221,7 +221,201 @@ class _ProfileState extends State<Profile> {
                   Icons.add,
                   color: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      // enableDrag: true,
+                      isDismissible: true,
+                      isScrollControlled: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                      builder: (BuildContext bc) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 40),
+                          height: MediaQuery.of(context).size.height / 2.5,
+                          child: Column(children: <Widget>[
+                            //modal title
+                            //
+                            //
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 10, 8, 0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("New Community post",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      )),
+                                  IconButton(
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: Colors.grey,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            //content
+                            //
+                            //
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(bottom: 10),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                          fillColor: Colors.grey[900],
+                                          filled: true,
+                                          enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(15.0),
+                                              ),
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey[900],
+                                                  width: 1.0)),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(15.0),
+                                              ),
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey[700],
+                                                  width: 1.0)),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  vertical: 5.0,
+                                                  horizontal: 10),
+                                          border: InputBorder.none,
+                                          hintText: 'Project ID'),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(bottom: 10),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: TextField(
+                                      maxLines: 5,
+                                      decoration: InputDecoration(
+                                          fillColor: Colors.grey[900],
+                                          filled: true,
+                                          enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(15.0),
+                                              ),
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey[900],
+                                                  width: 1.0)),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(15.0),
+                                              ),
+                                              borderSide: BorderSide(
+                                                  color: Colors.grey[700],
+                                                  width: 1.0)),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  vertical: 5.0,
+                                                  horizontal: 10),
+                                          border: InputBorder.none,
+                                          hintText: 'Post details'),
+                                    ),
+                                  ),
+                                  // Text(
+                                  //   "*You can later edit task status, members, etc.. by clicking on the task",
+                                  //   overflow: TextOverflow.ellipsis,
+                                  //   maxLines: 2,
+                                  //   style: TextStyle(
+                                  //       fontSize: 10.0,
+                                  //       fontWeight: FontWeight.w700,
+                                  //       color: Colors.grey),
+                                  // ),
+                                ],
+                              ),
+                            ),
+
+                            //actions
+                            //
+                            //
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width,
+                                height: 45,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      width: 150,
+                                      child: FlatButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          // color: Color(0xFEFEFEFE),
+                                          // textColor: Colors.blueAccent,
+                                          child: Text("Cancel",
+                                              style: TextStyle(
+                                                // color: Colors.white,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w600,
+                                              )),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                new BorderRadius.circular(10.0),
+                                            // side: BorderSide(color: Colors.black),
+                                          )),
+                                    ),
+                                    SizedBox(
+                                      width: 150,
+                                      // width: MediaQuery.of(context).size.width,
+                                      child: FlatButton(
+                                          onPressed: () {
+                                            Navigator.of(context)
+                                                .pushNamedAndRemoveUntil(
+                                                    // context,
+                                                    '/login',
+                                                    (Route<dynamic> route) =>
+                                                        false
+                                                    // arguments: widget.usertype
+                                                    );
+                                          },
+                                          color: Colors.blueAccent,
+                                          textColor: Colors.black,
+                                          child: Text("Post to Community",
+                                              style: TextStyle(
+                                                // color: Colors.white,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w600,
+                                              )),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                new BorderRadius.circular(10.0),
+                                            // side: BorderSide(color: Colors.black),
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ]),
+                        );
+                      });
+                },
               ),
             ],
           ),

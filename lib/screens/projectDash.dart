@@ -41,10 +41,158 @@ class _ProjectDashState extends State<ProjectDash> {
           ),
           IconButton(
             icon: Icon(
-              Icons.more_vert,
+              Icons.menu,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                  context: context,
+                  // enableDrag: true,
+                  isDismissible: true,
+                  isScrollControlled: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
+                  builder: (BuildContext bc) {
+                    return Container(
+                      margin: EdgeInsets.only(bottom: 40),
+                      height: MediaQuery.of(context).size.height / 4,
+                      child: Column(children: <Widget>[
+                        //modal title
+                        //
+                        //
+                        SizedBox(
+                          // height: 15,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 10, bottom: 10),
+                            height: 5,
+                            width: 35,
+                            // color: Colors.grey,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                        ),
+
+                        //
+                        //
+                        //
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 45,
+                          child: FlatButton(
+                            onPressed: () {},
+                            // color: Colors.grey[900],
+                            textColor: Colors.white,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.info_outline,
+                                  // color: Colors.grey,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Project details",
+                                    style: TextStyle(
+                                      // color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //
+                        //
+                        //
+
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 45,
+                          child: FlatButton(
+                            onPressed: () {},
+                            // color: Colors.grey[900],
+                            textColor: Colors.white,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.people_outline,
+                                  // color: Colors.grey,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Members",
+                                    style: TextStyle(
+                                      // color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 45,
+                          child: FlatButton(
+                            onPressed: () {},
+                            // color: Colors.grey[900],
+                            textColor: Colors.blueAccent,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.post_add_outlined,
+                                  color: Colors.blueAccent,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Post project to Community",
+                                    style: TextStyle(
+                                      // color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 45,
+                          child: FlatButton(
+                            onPressed: () {},
+                            // color: Colors.grey[900],
+                            textColor: Colors.redAccent,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.delete_outline,
+                                  color: Colors.redAccent,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Delete project",
+                                    style: TextStyle(
+                                      // color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ]),
+                    );
+                  });
+            },
           )
         ],
       ),
@@ -74,7 +222,212 @@ class _ProjectDashState extends State<ProjectDash> {
                       Icons.add,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showModalBottomSheet(
+                          context: context,
+                          // enableDrag: true,
+                          isDismissible: true,
+                          isScrollControlled: true,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          builder: (BuildContext bc) {
+                            return Container(
+                              margin: EdgeInsets.only(bottom: 40),
+                              height: MediaQuery.of(context).size.height / 2.5,
+                              child: Column(children: <Widget>[
+                                //modal title
+                                //
+                                //
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 10, 8, 0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Post Announcement",
+                                          style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                          )),
+                                      IconButton(
+                                        icon: Icon(
+                                          Icons.close,
+                                          color: Colors.grey,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                //content
+                                //
+                                //
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(bottom: 10),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                              fillColor: Colors.grey[900],
+                                              filled: true,
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(15.0),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey[900],
+                                                      width: 1.0)),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(15.0),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey[700],
+                                                      width: 1.0)),
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5.0,
+                                                      horizontal: 10),
+                                              border: InputBorder.none,
+                                              hintText: 'Title'),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(bottom: 10),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: TextField(
+                                          maxLines: 5,
+                                          decoration: InputDecoration(
+                                              fillColor: Colors.grey[900],
+                                              filled: true,
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(15.0),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey[900],
+                                                      width: 1.0)),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(15.0),
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey[700],
+                                                      width: 1.0)),
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5.0,
+                                                      horizontal: 10),
+                                              border: InputBorder.none,
+                                              hintText: 'Text'),
+                                        ),
+                                      ),
+                                      // Text(
+                                      //   "*You can later edit task status, members, etc.. by clicking on the task",
+                                      //   overflow: TextOverflow.ellipsis,
+                                      //   maxLines: 2,
+                                      //   style: TextStyle(
+                                      //       fontSize: 10.0,
+                                      //       fontWeight: FontWeight.w700,
+                                      //       color: Colors.grey),
+                                      // ),
+                                    ],
+                                  ),
+                                ),
+
+                                //actions
+                                //
+                                //
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                                  child: SizedBox(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 45,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        SizedBox(
+                                          width: 150,
+                                          child: FlatButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              // color: Color(0xFEFEFEFE),
+                                              // textColor: Colors.blueAccent,
+                                              child: Text("Cancel",
+                                                  style: TextStyle(
+                                                    // color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    new BorderRadius.circular(
+                                                        10.0),
+                                                // side: BorderSide(color: Colors.black),
+                                              )),
+                                        ),
+                                        SizedBox(
+                                          width: 150,
+                                          child: FlatButton(
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .pushNamedAndRemoveUntil(
+                                                        // context,
+                                                        '/login',
+                                                        (Route<dynamic>
+                                                                route) =>
+                                                            false
+                                                        // arguments: widget.usertype
+                                                        );
+                                              },
+                                              color: Colors.blueAccent,
+                                              textColor: Colors.black,
+                                              child: Text("Post",
+                                                  style: TextStyle(
+                                                    // color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    new BorderRadius.circular(
+                                                        10.0),
+                                                // side: BorderSide(color: Colors.black),
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ]),
+                            );
+                          });
+                    },
                   ),
                 ],
               ),
@@ -168,10 +521,10 @@ class _ProjectDashState extends State<ProjectDash> {
                   // ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(
-                        context, '/profile',
-                        // arguments: widget.usertype
-                      );
+                      // Navigator.pushNamed(
+                      //   context, '/profile',
+                      //   // arguments: widget.usertype
+                      // );
                     },
                     child: Container(
                       margin: EdgeInsets.only(right: 16),
@@ -270,10 +623,10 @@ class _ProjectDashState extends State<ProjectDash> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(
-                            context, '/profile',
-                            // arguments: widget.usertype
-                          );
+                          // Navigator.pushNamed(
+                          //   context, '/profile',
+                          //   // arguments: widget.usertype
+                          // );
                         },
                         child: Container(
                           margin: EdgeInsets.only(right: 16),
@@ -299,7 +652,239 @@ class _ProjectDashState extends State<ProjectDash> {
                           Icons.add,
                           color: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                              context: context,
+                              // enableDrag: true,
+                              isDismissible: true,
+                              isScrollControlled: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14.0),
+                              ),
+                              builder: (BuildContext bc) {
+                                return Container(
+                                  margin: EdgeInsets.only(bottom: 40),
+                                  height:
+                                      MediaQuery.of(context).size.height / 2.5,
+                                  child: Column(children: <Widget>[
+                                    //modal title
+                                    //
+                                    //
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          20, 10, 8, 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("New Board",
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                              )),
+                                          IconButton(
+                                            icon: Icon(
+                                              Icons.close,
+                                              color: Colors.grey,
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                    //content
+                                    //
+                                    //
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          15, 15, 15, 0),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(bottom: 10),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                  fillColor: Colors.grey[900],
+                                                  filled: true,
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                            Radius.circular(
+                                                                15.0),
+                                                          ),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      900],
+                                                                  width: 1.0)),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                            Radius.circular(
+                                                                15.0),
+                                                          ),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      700],
+                                                                  width: 1.0)),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 5.0,
+                                                          horizontal: 10),
+                                                  border: InputBorder.none,
+                                                  hintText: 'Board name'),
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(bottom: 10),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: TextField(
+                                              maxLines: 5,
+                                              decoration: InputDecoration(
+                                                  fillColor: Colors.grey[900],
+                                                  filled: true,
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                            Radius.circular(
+                                                                15.0),
+                                                          ),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      900],
+                                                                  width: 1.0)),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                            Radius.circular(
+                                                                15.0),
+                                                          ),
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      700],
+                                                                  width: 1.0)),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 5.0,
+                                                          horizontal: 10),
+                                                  border: InputBorder.none,
+                                                  hintText:
+                                                      'Board description'),
+                                            ),
+                                          ),
+                                          // Text(
+                                          //   "*You can later edit task status, members, etc.. by clicking on the task",
+                                          //   overflow: TextOverflow.ellipsis,
+                                          //   maxLines: 2,
+                                          //   style: TextStyle(
+                                          //       fontSize: 10.0,
+                                          //       fontWeight: FontWeight.w700,
+                                          //       color: Colors.grey),
+                                          // ),
+                                        ],
+                                      ),
+                                    ),
+
+                                    //actions
+                                    //
+                                    //
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          15, 15, 15, 0),
+                                      child: SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 45,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            SizedBox(
+                                              width: 150,
+                                              child: FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  // color: Color(0xFEFEFEFE),
+                                                  // textColor: Colors.blueAccent,
+                                                  child: Text("Cancel",
+                                                      style: TextStyle(
+                                                        // color: Colors.white,
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      )),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        new BorderRadius
+                                                            .circular(10.0),
+                                                    // side: BorderSide(color: Colors.black),
+                                                  )),
+                                            ),
+                                            SizedBox(
+                                              width: 150,
+                                              child: FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context)
+                                                        .pushNamedAndRemoveUntil(
+                                                            // context,
+                                                            '/login',
+                                                            (Route<dynamic>
+                                                                    route) =>
+                                                                false
+                                                            // arguments: widget.usertype
+                                                            );
+                                                  },
+                                                  color: Colors.blueAccent,
+                                                  textColor: Colors.black,
+                                                  child: Text("Add board",
+                                                      style: TextStyle(
+                                                        // color: Colors.white,
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      )),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        new BorderRadius
+                                                            .circular(10.0),
+                                                    // side: BorderSide(color: Colors.black),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                );
+                              });
+                        },
                       ),
                       // GestureDetector(
                       //   onTap: (){},
@@ -397,7 +982,192 @@ class _ProjectDashState extends State<ProjectDash> {
                                         color: Colors.white,
                                         size: 20,
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                            context: context,
+                                            // enableDrag: true,
+                                            isDismissible: true,
+                                            isScrollControlled: true,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(14.0),
+                                            ),
+                                            builder: (BuildContext bc) {
+                                              return Container(
+                                                margin:
+                                                    EdgeInsets.only(bottom: 40),
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height /
+                                                    4,
+                                                child:
+                                                    Column(children: <Widget>[
+                                                  //modal title
+                                                  //
+                                                  //
+                                                  SizedBox(
+                                                    // height: 15,
+                                                    child: Container(
+                                                      margin: EdgeInsets.only(
+                                                          top: 10, bottom: 10),
+                                                      height: 5,
+                                                      width: 35,
+                                                      // color: Colors.grey,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.grey,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                    ),
+                                                  ),
+
+                                                  //
+                                                  //
+                                                  //
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                    height: 45,
+                                                    child: FlatButton(
+                                                      onPressed: () {},
+                                                      // color: Colors.grey[900],
+                                                      textColor: Colors.white,
+                                                      child: Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons.info_outline,
+                                                            // color: Colors.grey,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          ),
+                                                          Text("Board details",
+                                                              style: TextStyle(
+                                                                // color: Colors.white,
+                                                                fontSize: 15,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              )),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+
+                                                  //
+                                                  //
+                                                  //
+
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                    height: 45,
+                                                    child: FlatButton(
+                                                      onPressed: () {},
+                                                      // color: Colors.grey[900],
+                                                      textColor: Colors.white,
+                                                      child: Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .people_outline,
+                                                            // color: Colors.grey,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          ),
+                                                          Text("Members",
+                                                              style: TextStyle(
+                                                                // color: Colors.white,
+                                                                fontSize: 15,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              )),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+
+                                                  // SizedBox(
+                                                  //   width:
+                                                  //       MediaQuery.of(context)
+                                                  //           .size
+                                                  //           .width,
+                                                  //   height: 45,
+                                                  //   child: FlatButton(
+                                                  //     onPressed: () {},
+                                                  //     // color: Colors.grey[900],
+                                                  //     textColor:
+                                                  //         Colors.blueAccent,
+                                                  //     child: Row(
+                                                  //       children: [
+                                                  //         Icon(
+                                                  //           Icons
+                                                  //               .post_add_outlined,
+                                                  //           color: Colors
+                                                  //               .blueAccent,
+                                                  //         ),
+                                                  //         SizedBox(
+                                                  //           width: 20,
+                                                  //         ),
+                                                  //         Text(
+                                                  //             "Post project to Community",
+                                                  //             style: TextStyle(
+                                                  //               // color: Colors.white,
+                                                  //               fontSize: 15,
+                                                  //               fontWeight:
+                                                  //                   FontWeight
+                                                  //                       .w500,
+                                                  //             )),
+                                                  //       ],
+                                                  //     ),
+                                                  //   ),
+                                                  // ),
+
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                    height: 45,
+                                                    child: FlatButton(
+                                                      onPressed: () {},
+                                                      // color: Colors.grey[900],
+                                                      textColor:
+                                                          Colors.redAccent,
+                                                      child: Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .delete_outline,
+                                                            color: Colors
+                                                                .redAccent,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          ),
+                                                          Text("Delete board",
+                                                              style: TextStyle(
+                                                                // color: Colors.white,
+                                                                fontSize: 15,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              )),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]),
+                                              );
+                                            });
+                                      },
                                     ),
                                   ],
                                 ),

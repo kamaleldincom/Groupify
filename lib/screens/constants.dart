@@ -31,88 +31,88 @@ class _BtmNavBarState extends State<BtmNavBar> {
       // Notifications(),
       // Profile('Rider'),
     ];
-    return 
-    // StreamProvider<List>.value(
-      // value: DatabaseService().rides,
-      // child: 
-      Scaffold(
-          body: _pages[_currentIndex],
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (int index) {
-              _currentIndex = index;
-              setState(() {});
-            },
-            // onTap: onTapped,
-            type: BottomNavigationBarType.fixed,
-            iconSize: 26,
-            selectedFontSize: 12,
-            backgroundColor: Colors.black,
-            unselectedItemColor: Colors.white60,
-            selectedItemColor: Colors.white,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.dashboard_rounded,
-                ),
-                title: Text(
-                  'My Projects',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+    return
+        // StreamProvider<List>.value(
+        // value: DatabaseService().rides,
+        // child:
+        Scaffold(
+            body: _pages[_currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: _currentIndex,
+              onTap: (int index) {
+                _currentIndex = index;
+                setState(() {});
+              },
+              // onTap: onTapped,
+              type: BottomNavigationBarType.fixed,
+              iconSize: 26,
+              selectedFontSize: 12,
+              backgroundColor: Colors.black,
+              unselectedItemColor: Colors.white60,
+              selectedItemColor: Colors.white,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.dashboard_rounded,
+                  ),
+                  title: Text(
+                    'My Projects',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.list_alt_rounded,
-                ),
-                title: Text(
-                  'My Tasks',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.list_alt_rounded,
+                  ),
+                  title: Text(
+                    'My Tasks',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.explore,
-                ),
-                title: Text(
-                  'Community',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.explore_outlined,
+                  ),
+                  title: Text(
+                    'Community',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.chat_bubble_outline_rounded,
-                ),
-                title: Text(
-                  'chats',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.chat_bubble_outline_rounded,
+                  ),
+                  title: Text(
+                    'chats',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                ),
-                title: Text(
-                  'Profile',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline,
+                  ),
+                  title: Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ));
+              ],
+            ));
     // );
   }
 }
