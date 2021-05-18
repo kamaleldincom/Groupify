@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,48 @@ class BoardDash extends StatefulWidget {
 }
 
 class _BoardDashState extends State<BoardDash> {
+  String segmentedControlValue = 'Pending';
+
+  Widget segmentedControl() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      // height: 45,
+      child: CupertinoSlidingSegmentedControl(
+          groupValue: segmentedControlValue,
+          backgroundColor: Colors.black54,
+          padding: EdgeInsets.all(6),
+          thumbColor: Colors.grey[800],
+          children: const <String, Widget>{
+            'Pending': Text(
+              'Pending',
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.red),
+            ),
+            'Ongoing': Text(
+              'Ongoing',
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.orange),
+            ),
+            'Finished': Text(
+              'Finished',
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.green),
+            ),
+          },
+          onValueChanged: (value) {
+            setState(() {
+              segmentedControlValue = value;
+            });
+          }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -312,7 +355,7 @@ class _BoardDashState extends State<BoardDash> {
                           builder: (BuildContext bc) {
                             return Container(
                               margin: EdgeInsets.only(bottom: 40),
-                              height: MediaQuery.of(context).size.height / 1.5,
+                              height: MediaQuery.of(context).size.height / 1.3,
                               child: Column(children: <Widget>[
                                 //modal title
                                 //
@@ -350,35 +393,33 @@ class _BoardDashState extends State<BoardDash> {
                                         ),
                                         child: TextField(
                                           decoration: InputDecoration(
-                                              fillColor: Colors.grey[900],
-                                              filled: true,
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(15.0),
-                                                  ),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey[900],
-                                                      width: 1.0)),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(15.0),
-                                                  ),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey[700],
-                                                      width: 1.0)),
-                                              contentPadding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 5.0,
-                                                      horizontal: 10),
-                                              border: InputBorder.none,
-                                              hintText:
-                                                  'Profile page front end'),
+                                            fillColor: Colors.grey[900],
+                                            filled: true,
+                                            enabledBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(15.0),
+                                                ),
+                                                borderSide: BorderSide(
+                                                    color: Colors.grey[900],
+                                                    width: 1.0)),
+                                            focusedBorder: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(15.0),
+                                                ),
+                                                borderSide: BorderSide(
+                                                    color: Colors.grey[700],
+                                                    width: 1.0)),
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 5.0,
+                                                    horizontal: 10),
+                                            border: InputBorder.none,
+                                            hintText: 'Profile page front end',
+                                          ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(bottom: 10),
+                                        // margin: EdgeInsets.only(bottom: 10),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
@@ -415,7 +456,7 @@ class _BoardDashState extends State<BoardDash> {
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
+                                        margin: EdgeInsets.only(top: 15),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
@@ -574,7 +615,117 @@ class _BoardDashState extends State<BoardDash> {
                                           ],
                                         ),
                                       ),
-
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            top: 0.0, left: 0),
+                                        margin: EdgeInsets.only(top: 15),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Status",
+                                              // overflow: TextOverflow.ellipsis,
+                                              // maxLines: 2,
+                                              style: TextStyle(
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: Colors.grey),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            segmentedControl(),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            top: 0.0, left: 0),
+                                        margin: EdgeInsets.only(top: 15),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Tag",
+                                              // overflow: TextOverflow.ellipsis,
+                                              // maxLines: 2,
+                                              style: TextStyle(
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: Colors.grey),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              // margin:
+                                              // EdgeInsets.only(right: 15),
+                                              height: 45,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8, vertical: 2),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10)),
+                                                color: Colors.grey[800],
+                                              ),
+                                              child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      width: 80,
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 10),
+                                                      child: Text(
+                                                        "#",
+                                                        // overflow: TextOverflow
+                                                        //     .ellipsis,
+                                                        // maxLines: 2,
+                                                        style: TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    // Container(
+                                                    //   child: TextField(),
+                                                    // ),
+                                                    Container(
+                                                      width: 65,
+                                                      child: FlatButton(
+                                                        child: Text(
+                                                          "add",
+                                                          // overflow: TextOverflow
+                                                          //     .ellipsis,
+                                                          // maxLines: 2,
+                                                          style: TextStyle(
+                                                            color: Colors
+                                                                .blueAccent,
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        onPressed: () {},
+                                                      ),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                       // Text(
                                       //   "*You can later edit task status, members, etc.. by clicking on the task",
                                       //   overflow: TextOverflow.ellipsis,
