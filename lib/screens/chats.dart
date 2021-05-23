@@ -13,26 +13,26 @@ class _ChatsState extends State<Chats> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text('Chats'),
-        actions: [
-          Container(
-            // padding: EdgeInsets.all(8),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(
-                  context, '/newpost',
-                  // arguments: widget.usertype
-                );
-              },
-              child: IconButton(
-                icon: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
-            ),
-          )
-        ],
+        // actions: [
+        //   Container(
+        //     // padding: EdgeInsets.all(8),
+        //     child: GestureDetector(
+        //       onTap: () {
+        //         Navigator.pushNamed(
+        //           context, '/newpost',
+        //           // arguments: widget.usertype
+        //         );
+        //       },
+        //       child: IconButton(
+        //         icon: Icon(
+        //           Icons.add,
+        //           color: Colors.white,
+        //         ),
+        //         onPressed: () {},
+        //       ),
+        //     ),
+        //   )
+        // ],
 
         // actions: [
         //   Container(
@@ -105,8 +105,8 @@ class _ChatsState extends State<Chats> {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: Color(0xFEFEFEFE),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w700,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400,
                                     ),
                                   ),
                                   Text(
@@ -114,8 +114,8 @@ class _ChatsState extends State<Chats> {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: Colors.blueAccent,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                   SizedBox(height: 4),
@@ -135,7 +135,7 @@ class _ChatsState extends State<Chats> {
                             // SizedBox( width: 8,),
                           ]),
                       SizedBox(
-                        width: 60,
+                        // width: 60,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.end,

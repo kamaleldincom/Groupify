@@ -99,7 +99,7 @@ class _MembersState extends State<Members> {
                             // SizedBox( width: 8,),
                           ]),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.25,
+                        // width: MediaQuery.of(context).size.width * 0.25,
                         child: Row(
                           children: [
                             IconButton(

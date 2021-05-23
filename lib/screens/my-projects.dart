@@ -400,7 +400,7 @@ class _MyProjectsState extends State<MyProjects> {
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height /
-                                                  4,
+                                                  3,
                                               child: Column(children: <Widget>[
                                                 //modal title
                                                 //
@@ -561,7 +561,7 @@ class _MyProjectsState extends State<MyProjects> {
                                             );
                                           });
                                     },
-                                    child: Icon(Icons.menu,
+                                    child: Icon(Icons.more_vert,
                                         color: Colors.white, size: 20)),
                               ),
                             ]),
