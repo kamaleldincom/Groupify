@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923699169465",
+    "project_id": "groupify-2b19c",
+    "storage_bucket": "groupify-2b19c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923699169465:android:d56db1c3b26417cc1b3368",
+        "android_client_info": {
+          "package_name": "com.example.groupify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923699169465-gfiqoefbtpa59tbvo1rq4ebbvnl2lf5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzztUi5MhBwc18LRUAI93Am6R8TvQGDPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923699169465-gfiqoefbtpa59tbvo1rq4ebbvnl2lf5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
