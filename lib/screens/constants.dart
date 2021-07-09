@@ -47,7 +47,7 @@ class _BtmNavBarState extends State<BtmNavBar> {
               type: BottomNavigationBarType.fixed,
               iconSize: 26,
               selectedFontSize: 12,
-              backgroundColor: Colors.black,
+              backgroundColor: Color(0xFF171717),
               unselectedItemColor: Colors.white60,
               selectedItemColor: Colors.white,
               items: [

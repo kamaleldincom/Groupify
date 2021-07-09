@@ -1384,195 +1384,205 @@ class _ProjectDashState extends State<ProjectDash> {
                                                             14.0),
                                                   ),
                                                   builder: (BuildContext bc) {
-                                                    return Container(
-                                                      margin: EdgeInsets.only(
-                                                          bottom: 40),
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height /
-                                                              4,
-                                                      child: Column(children: <
-                                                          Widget>[
-                                                        //modal title
-                                                        //
-                                                        //
-                                                        SizedBox(
-                                                          // height: 15,
-                                                          child: Container(
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                                    top: 10,
-                                                                    bottom: 10),
-                                                            height: 5,
-                                                            width: 35,
-                                                            // color: Colors.grey,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.grey,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                            ),
-                                                          ),
-                                                        ),
-
-                                                        //
-                                                        //
-                                                        //
-                                                        SizedBox(
-                                                          width: MediaQuery.of(
-                                                                  context)
-                                                              .size
-                                                              .width,
-                                                          height: 45,
-                                                          child: FlatButton(
-                                                            onPressed: () {},
-                                                            // color: Colors.grey[900],
-                                                            textColor:
-                                                                Colors.white,
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .info_outline,
-                                                                  // color: Colors.grey,
-                                                                ),
+                                                    return Wrap(
+                                                      children: [
+                                                        Container(
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  bottom: 60),
+                                                          // height:
+                                                          //     MediaQuery.of(context)
+                                                          //             .size
+                                                          //             .height /
+                                                          //         4,
+                                                          child: Column(
+                                                              children: <
+                                                                  Widget>[
+                                                                //modal title
+                                                                //
+                                                                //
                                                                 SizedBox(
-                                                                  width: 20,
+                                                                  // height: 15,
+                                                                  child:
+                                                                      Container(
+                                                                    margin: EdgeInsets.only(
+                                                                        top: 10,
+                                                                        bottom:
+                                                                            10),
+                                                                    height: 5,
+                                                                    width: 35,
+                                                                    // color: Colors.grey,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .grey,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5),
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                                Text(
-                                                                    "Board details",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      // color: Colors.white,
-                                                                      fontSize:
-                                                                          15,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
 
-                                                        //
-                                                        //
-                                                        //
-
-                                                        SizedBox(
-                                                          width: MediaQuery.of(
-                                                                  context)
-                                                              .size
-                                                              .width,
-                                                          height: 45,
-                                                          child: FlatButton(
-                                                            onPressed: () {},
-                                                            // color: Colors.grey[900],
-                                                            textColor:
-                                                                Colors.white,
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .people_outline,
-                                                                  // color: Colors.grey,
-                                                                ),
+                                                                //
+                                                                //
+                                                                //
                                                                 SizedBox(
-                                                                  width: 20,
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  height: 45,
+                                                                  child:
+                                                                      FlatButton(
+                                                                    onPressed:
+                                                                        () {},
+                                                                    // color: Colors.grey[900],
+                                                                    textColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .info_outline,
+                                                                          // color: Colors.grey,
+                                                                        ),
+                                                                        SizedBox(
+                                                                          width:
+                                                                              20,
+                                                                        ),
+                                                                        Text(
+                                                                            "Board details",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              // color: Colors.white,
+                                                                              fontSize: 15,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            )),
+                                                                      ],
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                                Text("Members",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      // color: Colors.white,
-                                                                      fontSize:
-                                                                          15,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    )),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
 
-                                                        // SizedBox(
-                                                        //   width:
-                                                        //       MediaQuery.of(context)
-                                                        //           .size
-                                                        //           .width,
-                                                        //   height: 45,
-                                                        //   child: FlatButton(
-                                                        //     onPressed: () {},
-                                                        //     // color: Colors.grey[900],
-                                                        //     textColor:
-                                                        //         Colors.blueAccent,
-                                                        //     child: Row(
-                                                        //       children: [
-                                                        //         Icon(
-                                                        //           Icons
-                                                        //               .post_add_outlined,
-                                                        //           color: Colors
-                                                        //               .blueAccent,
-                                                        //         ),
-                                                        //         SizedBox(
-                                                        //           width: 20,
-                                                        //         ),
-                                                        //         Text(
-                                                        //             "Post project to Community",
-                                                        //             style: TextStyle(
-                                                        //               // color: Colors.white,
-                                                        //               fontSize: 15,
-                                                        //               fontWeight:
-                                                        //                   FontWeight
-                                                        //                       .w500,
-                                                        //             )),
-                                                        //       ],
-                                                        //     ),
-                                                        //   ),
-                                                        // ),
+                                                                //
+                                                                //
+                                                                //
 
-                                                        SizedBox(
-                                                          width: MediaQuery.of(
-                                                                  context)
-                                                              .size
-                                                              .width,
-                                                          height: 45,
-                                                          child: FlatButton(
-                                                            onPressed: () {},
-                                                            // color: Colors.grey[900],
-                                                            textColor: Colors
-                                                                .redAccent,
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .delete_outline,
-                                                                  color: Colors
-                                                                      .redAccent,
-                                                                ),
                                                                 SizedBox(
-                                                                  width: 20,
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  height: 45,
+                                                                  child:
+                                                                      FlatButton(
+                                                                    onPressed:
+                                                                        () {},
+                                                                    // color: Colors.grey[900],
+                                                                    textColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .people_outline,
+                                                                          // color: Colors.grey,
+                                                                        ),
+                                                                        SizedBox(
+                                                                          width:
+                                                                              20,
+                                                                        ),
+                                                                        Text(
+                                                                            "Members",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              // color: Colors.white,
+                                                                              fontSize: 15,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            )),
+                                                                      ],
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                                Text(
-                                                                    "Delete board",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      // color: Colors.white,
-                                                                      fontSize:
-                                                                          15,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    )),
-                                                              ],
-                                                            ),
-                                                          ),
+
+                                                                // SizedBox(
+                                                                //   width:
+                                                                //       MediaQuery.of(context)
+                                                                //           .size
+                                                                //           .width,
+                                                                //   height: 45,
+                                                                //   child: FlatButton(
+                                                                //     onPressed: () {},
+                                                                //     // color: Colors.grey[900],
+                                                                //     textColor:
+                                                                //         Colors.blueAccent,
+                                                                //     child: Row(
+                                                                //       children: [
+                                                                //         Icon(
+                                                                //           Icons
+                                                                //               .post_add_outlined,
+                                                                //           color: Colors
+                                                                //               .blueAccent,
+                                                                //         ),
+                                                                //         SizedBox(
+                                                                //           width: 20,
+                                                                //         ),
+                                                                //         Text(
+                                                                //             "Post project to Community",
+                                                                //             style: TextStyle(
+                                                                //               // color: Colors.white,
+                                                                //               fontSize: 15,
+                                                                //               fontWeight:
+                                                                //                   FontWeight
+                                                                //                       .w500,
+                                                                //             )),
+                                                                //       ],
+                                                                //     ),
+                                                                //   ),
+                                                                // ),
+
+                                                                SizedBox(
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  height: 45,
+                                                                  child:
+                                                                      FlatButton(
+                                                                    onPressed:
+                                                                        () {},
+                                                                    // color: Colors.grey[900],
+                                                                    textColor:
+                                                                        Colors
+                                                                            .redAccent,
+                                                                    child: Row(
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .delete_outline,
+                                                                          color:
+                                                                              Colors.redAccent,
+                                                                        ),
+                                                                        SizedBox(
+                                                                          width:
+                                                                              20,
+                                                                        ),
+                                                                        Text(
+                                                                            "Delete board",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              // color: Colors.white,
+                                                                              fontSize: 15,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            )),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ]),
                                                         ),
-                                                      ]),
+                                                      ],
                                                     );
                                                   });
                                             },

@@ -192,17 +192,17 @@ class _ProfileState extends State<Profile> {
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(children: <Widget>[
+            // Text(
+            //   "ahmed@kamaleldin.com",
+            //   style: TextStyle(
+            //     color: Colors.grey,
+            //     fontSize: 12,
+            //     fontWeight: FontWeight.w600,
+            //   ),
+            // ),
+            // SizedBox(height: 10),
             Text(
-              "ahmed@kamaleldin.com",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "A17CS4014",
+              "Change profile picture",
               style: TextStyle(
                 color: Colors.blueAccent,
                 fontSize: 12,
