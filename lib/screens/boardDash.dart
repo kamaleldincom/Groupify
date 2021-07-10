@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class BoardDash extends StatefulWidget {
   @override
@@ -48,6 +49,40 @@ class _BoardDashState extends State<BoardDash> {
             });
           }),
     );
+  }
+
+  DateTime _chosenDateTime;
+
+  // Show the modal that contains the CupertinoDatePicker
+  void _showDatePicker(ctx) {
+    // showCupertinoModalPopup is a built-in function of the cupertino library
+    showCupertinoModalPopup(
+        context: ctx,
+        builder: (_) => Container(
+              height: 300,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Container(
+                    height: 200,
+                    child: CupertinoDatePicker(
+                        initialDateTime: DateTime.now(),
+                        // backgroundColor: Colors.black,
+                        onDateTimeChanged: (val) {
+                          setState(() {
+                            _chosenDateTime = val;
+                          });
+                        }),
+                  ),
+
+                  // Close the modal
+                  CupertinoButton(
+                    child: Text('Confirm deadline'),
+                    onPressed: () => Navigator.of(ctx).pop(),
+                  )
+                ],
+              ),
+            ));
   }
 
   @override
@@ -705,7 +740,7 @@ class _BoardDashState extends State<BoardDash> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    "Tag",
+                                                    "Deadline",
                                                     // overflow: TextOverflow.ellipsis,
                                                     // maxLines: 2,
                                                     style: TextStyle(
@@ -721,10 +756,10 @@ class _BoardDashState extends State<BoardDash> {
                                                     // margin:
                                                     // EdgeInsets.only(right: 15),
                                                     height: 45,
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 8,
-                                                            vertical: 2),
+                                                    // padding:
+                                                    //     EdgeInsets.symmetric(
+                                                    //         horizontal: 8,
+                                                    //         vertical: 2),
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.all(
@@ -732,79 +767,43 @@ class _BoardDashState extends State<BoardDash> {
                                                                   10)),
                                                       color: Colors.grey[800],
                                                     ),
-                                                    child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            // width: 80,
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        10),
-                                                            child: Text(
-                                                              "#",
-                                                              // overflow: TextOverflow
-                                                              //     .ellipsis,
-                                                              // maxLines: 2,
+                                                    child: SizedBox(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                              .size
+                                                              .width,
+                                                      child: FlatButton(
+                                                          onPressed: () {
+                                                            _showDatePicker(
+                                                                context);
+                                                          },
+                                                          color:
+                                                              Colors.grey[800],
+                                                          textColor:
+                                                              Colors.black,
+                                                          child: Text(
+                                                              _chosenDateTime !=
+                                                                      null
+                                                                  ? _chosenDateTime
+                                                                      .toString()
+                                                                  : 'Choose Date & Time',
                                                               style: TextStyle(
-                                                                color:
-                                                                    Colors.grey,
-                                                                fontSize: 22,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 15,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w700,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                              // child:
-                                                              //     Text(
-                                                              //       "My Community Posts",
-                                                              //       overflow: TextOverflow
-                                                              //           .ellipsis,
-                                                              //       style: TextStyle(
-                                                              //         color:
-                                                              //             Color(0xFEFEFEFE),
-                                                              //         fontSize: 16,
-                                                              //         fontWeight:
-                                                              //             FontWeight.w600,
-                                                              //       ),
-                                                              //     ),
-                                                              //     TextField(
-                                                              //   decoration: InputDecoration(
-                                                              //       border: InputBorder
-                                                              //           .none,
-                                                              //       hintText:
-                                                              //           'Enter a search term'),
-                                                              // ),
-                                                              ),
-                                                          Container(
-                                                            width: 65,
-                                                            child: FlatButton(
-                                                              child: Text(
-                                                                "add",
-                                                                // overflow: TextOverflow
-                                                                //     .ellipsis,
-                                                                // maxLines: 2,
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .blueAccent,
-                                                                  fontSize: 18,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400,
-                                                                ),
-                                                              ),
-                                                              onPressed: () {},
-                                                            ),
-                                                          ),
-                                                        ]),
+                                                                        .w600,
+                                                              )),
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                new BorderRadius
+                                                                        .circular(
+                                                                    10.0),
+                                                            // side: BorderSide(color: Colors.black),
+                                                          )),
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -876,7 +875,7 @@ class _BoardDashState extends State<BoardDash> {
                                                     },
                                                     color: Colors.blueAccent,
                                                     textColor: Colors.black,
-                                                    child: Text("Save changes",
+                                                    child: Text("Update",
                                                         style: TextStyle(
                                                           // color: Colors.white,
                                                           fontSize: 15,

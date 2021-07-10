@@ -8,6 +8,12 @@ class Members extends StatefulWidget {
 }
 
 class _MembersState extends State<Members> {
+  String dropdownvalue = 'Team member';
+  var items = [
+    'Team member',
+    'Supervisor',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,53 +107,62 @@ class _MembersState extends State<Members> {
                                                   vertical: 5.0,
                                                   horizontal: 10),
                                           border: InputBorder.none,
-                                          hintText: 'Member E-mail or Uni ID'),
+                                          hintText: 'E-mail or Uni ID'),
                                     ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.only(bottom: 10),
+                                    width: MediaQuery.of(context).size.width,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 8),
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.grey[700],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
-                                    child: TextField(
-                                      maxLines: 5,
-                                      decoration: InputDecoration(
-                                          fillColor: Colors.grey[900],
-                                          filled: true,
-                                          enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(15.0),
-                                              ),
-                                              borderSide: BorderSide(
-                                                  color: Colors.grey[900],
-                                                  width: 1.0)),
-                                          focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(15.0),
-                                              ),
-                                              borderSide: BorderSide(
-                                                  color: Colors.grey[700],
-                                                  width: 1.0)),
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  vertical: 5.0,
-                                                  horizontal: 10),
-                                          border: InputBorder.none,
-                                          hintText: 'Project description'),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text("Type",
+                                            style: TextStyle(
+                                              color: Colors.grey[500],
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            )),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              3 *
+                                              2,
+                                          child: DropdownButtonHideUnderline(
+                                            child: DropdownButton(
+                                              value: dropdownvalue,
+                                              icon: Icon(
+                                                  Icons.keyboard_arrow_down),
+                                              items: items.map((String items) {
+                                                return DropdownMenuItem(
+                                                    value: items,
+                                                    child: Text(items));
+                                              }).toList(),
+                                              onChanged: (String newValue) {
+                                                setState(() {
+                                                  dropdownvalue = newValue;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  // Text(
-                                  //   "*You can later edit task status, members, etc.. by clicking on the task",
-                                  //   overflow: TextOverflow.ellipsis,
-                                  //   maxLines: 2,
-                                  //   style: TextStyle(
-                                  //       fontSize: 10.0,
-                                  //       fontWeight: FontWeight.w700,
-                                  //       color: Colors.grey),
-                                  // ),
                                 ],
                               ),
+                            ),
+                            SizedBox(
+                              height: 40,
                             ),
 
                             //actions
@@ -323,8 +338,8 @@ class _MembersState extends State<Members> {
                             ),
                             IconButton(
                               icon: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
+                                Icons.delete_outlined,
+                                color: Colors.redAccent,
                                 // size: 20,
                               ),
                               onPressed: () {

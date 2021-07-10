@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class Community extends StatefulWidget {
   @override
@@ -12,7 +13,10 @@ class _CommunityState extends State<Community> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text('Groupify'),
+        title: Text(
+          'Groupify',
+          // style: GoogleFonts.lobster(),
+        ),
         actions: [
           Container(
             // padding: EdgeInsets.all(8),
@@ -334,13 +338,14 @@ class _CommunityState extends State<Community> {
                                       width: 78,
                                       height: 22,
                                       decoration: BoxDecoration(
+                                        color: Colors.blueAccent,
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(5)),
-                                        border: Border.all(
-                                          color: Colors
-                                              .blueAccent, //                   <--- border color
-                                          width: 1.5,
-                                        ),
+                                        // border: Border.all(
+                                        //   color: Colors
+                                        //       .blueAccent, //                   <--- border color
+                                        //   width: 1.5,
+                                        // ),
                                       ),
                                       child: Row(
                                           mainAxisAlignment:
@@ -351,7 +356,7 @@ class _CommunityState extends State<Community> {
                                             Icon(
                                               Icons.question_answer_outlined,
                                               size: 12.0,
-                                              color: Colors.blueAccent,
+                                              color: Colors.black,
                                             ),
                                             SizedBox(
                                               width: 4,
@@ -363,9 +368,9 @@ class _CommunityState extends State<Community> {
                                                 overflow: TextOverflow
                                                     .ellipsis, // .......................
                                                 style: TextStyle(
-                                                  color: Colors.blueAccent,
+                                                  color: Colors.black,
                                                   fontSize: 10,
-                                                  fontWeight: FontWeight.w600,
+                                                  fontWeight: FontWeight.w700,
                                                 ),
                                               ),
                                             ),
