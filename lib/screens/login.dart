@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/models/User.dart';
+import 'package:groupify/services/AuthService.dart';
 // import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class Login extends StatefulWidget {
@@ -10,7 +12,17 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
 
-  final TextEditingController controller = TextEditingController();
+  AuthService auth = AuthService();
+
+  ///login
+  final TextEditingController loginEmailController = TextEditingController();
+  final TextEditingController loginPasswordController = TextEditingController();
+
+  /// registration
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController uniIdController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   String initialCountry = 'MY';
   // PhoneNumber number = PhoneNumber(isoCode: 'MY');
 
@@ -32,10 +44,10 @@ class _LoginState extends State<Login> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Form(
-            key: _formKey,
-            child: Column(children: <Widget>[
-              Column(
+          child: Column(children: <Widget>[
+            Form(
+              key: _formKey,
+              child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     //sign in
@@ -52,6 +64,7 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: TextField(
+                        controller: loginEmailController,
                         decoration: InputDecoration(
                             fillColor: Colors.grey[850],
                             filled: true,
@@ -80,6 +93,8 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: TextField(
+                        controller: loginPasswordController,
+                        obscureText: true,
                         decoration: InputDecoration(
                             fillColor: Colors.grey[850],
                             filled: true,
@@ -106,7 +121,26 @@ class _LoginState extends State<Login> {
                       width: MediaQuery.of(context).size.width,
                       height: 45,
                       child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (loginEmailController.text.trim().isNotEmpty &&
+                                loginPasswordController.text
+                                    .trim()
+                                    .isNotEmpty) {
+                              // declare user object
+                              User user;
+                              // initialize
+                              user = User(
+                                  email: loginEmailController.text.trim(),
+                                  password:
+                                      loginPasswordController.text.trim());
+
+                              // call register function
+                              auth.signInWithEmailAndPassword(
+                                  user.email, user.password);
+                            } else {
+                              // feedback
+                            }
+                          },
                           color: Colors.black,
                           textColor: Colors.white,
                           child: Text("Sign In",
@@ -124,13 +158,16 @@ class _LoginState extends State<Login> {
                           )),
                     ),
                   ]),
-              SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[Text('OR')],
-              ),
-              SizedBox(height: 40),
-              Column(children: <Widget>[
+            ),
+            SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Text('OR')],
+            ),
+            SizedBox(height: 40),
+            Form(
+              key: _formKey2,
+              child: Column(children: <Widget>[
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
                     Widget>[
                   Text("Sign Up"),
@@ -141,7 +178,10 @@ class _LoginState extends State<Login> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
+
+                    /// Name text field
                     child: TextField(
+                      controller: nameController,
                       decoration: InputDecoration(
                           fillColor: Colors.grey[850],
                           filled: true,
@@ -170,6 +210,7 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextField(
+                      controller: uniIdController,
                       decoration: InputDecoration(
                           fillColor: Colors.grey[850],
                           filled: true,
@@ -199,6 +240,7 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                           fillColor: Colors.grey[850],
                           filled: true,
@@ -227,6 +269,8 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextField(
+                      controller: passwordController,
+                      obscureText: true,
                       decoration: InputDecoration(
                           fillColor: Colors.grey[850],
                           filled: true,
@@ -254,7 +298,26 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width,
                     height: 45,
                     child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (nameController.text.trim().isNotEmpty &&
+                              uniIdController.text.trim().isNotEmpty &&
+                              emailController.text.trim().isNotEmpty &&
+                              passwordController.text.trim().isNotEmpty) {
+                            // declare user object
+                            User user;
+                            // initialize
+                            user = User(
+                                name: nameController.text.trim(),
+                                uni_Id_No: uniIdController.text.trim(),
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim());
+
+                            // call register function
+                            auth.registerUser(user);
+                          } else {
+                            // feedback
+                          }
+                        },
                         color: Colors.white,
                         textColor: Colors.black,
                         child: Text("Sign Up",
@@ -270,8 +333,8 @@ class _LoginState extends State<Login> {
                   ),
                 ]),
               ]),
-            ]),
-          ),
+            ),
+          ]),
         ),
       ),
     );

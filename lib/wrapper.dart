@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/models/User.dart';
 import 'package:groupify/screens/constants.dart';
 import 'package:groupify/screens/login.dart';
 import 'package:provider/provider.dart';
@@ -6,14 +7,13 @@ import 'package:provider/provider.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final user = Provider.of<User>(context);
-    // print(user);
-    // return either home or authenticate widget
-    // if (user == null) {
-    // return Login();
-    // }else{
-    return BtmNavBar();
-
-    // }
+    final user = Provider.of<User>(context);
+    print(user);
+    // return either home or authenticate widget;
+    if (user == null) {
+      return Login();
+    } else {
+      return BtmNavBar();
+    }
   }
 }

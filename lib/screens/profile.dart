@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/services/AuthService.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -131,12 +132,9 @@ class _ProfileState extends State<Profile> {
                             height: 45,
                             child: RaisedButton(
                                 onPressed: () {
-                                  Navigator.of(context).pushNamedAndRemoveUntil(
-                                      // context,
-                                      '/login',
-                                      (Route<dynamic> route) => false
-                                      // arguments: widget.usertype
-                                      );
+                                  AuthService auth = AuthService();
+                                  auth.signOut();
+                                  Navigator.pop(context);
                                 },
                                 color: Colors.redAccent,
                                 textColor: Colors.white,
