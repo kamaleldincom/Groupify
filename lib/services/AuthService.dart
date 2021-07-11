@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:groupify/models/User.dart' as u;
+import 'package:groupify/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -32,8 +33,11 @@ class AuthService {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: user.email, password: user.password);
       User fireUser = result.user;
+
       print('fire uid:  ${fireUser.uid}');
-      // await DatabaseService(uid: fireUser.uid).insertUser(user);
+      user.id = fireUser.uid;
+      print('user uid:  ${user.id}');
+      await DatabaseService().insertUser(user);
       return _userFormFirebaseUser(fireUser);
     } catch (e) {
       print(e.toString());

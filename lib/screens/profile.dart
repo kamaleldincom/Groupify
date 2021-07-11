@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:groupify/models/User.dart';
 import 'package:groupify/services/AuthService.dart';
+import 'package:groupify/services/database.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -19,6 +22,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    User user = Provider.of<User>(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -582,11 +586,16 @@ class _ProfileState extends State<Profile> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 15),
                                     child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.pushNamed(
-                                            context, '/profile',
-                                            // arguments: widget.usertype
-                                          );
+                                        onTap: () async {
+                                          print('user id 2' + user.id);
+                                          DatabaseService db =
+                                              DatabaseService();
+
+                                          db.updateUser('ahmed', user.id);
+
+                                          User user1 =
+                                              await db.getUser(user.id);
+                                          print(user1.toString());
                                         },
                                         child: Icon(Icons.more_vert,
                                             color: Colors.white, size: 20)),

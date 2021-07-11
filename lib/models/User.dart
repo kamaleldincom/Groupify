@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class User {
   String id;
   String name;
@@ -24,7 +26,7 @@ class User {
     };
   }
 
-  factory User.fromMap(Map<String, dynamic> map) {
+  factory User.fromMap(DocumentSnapshot map) {
     return User(
       id: map['id'],
       name: map['name'],
@@ -32,5 +34,10 @@ class User {
       email: map['email'],
       password: map['password'],
     );
+  }
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name, uni_Id_No: $uni_Id_No, email: $email, password: $password)';
   }
 }
