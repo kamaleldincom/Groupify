@@ -11,6 +11,10 @@ class BoardDash extends StatefulWidget {
 class _BoardDashState extends State<BoardDash> {
   String segmentedControlValue = 'Pending';
 
+  /// task status selector
+  ///
+  ///
+
   Widget segmentedControl() {
     return Container(
       width: MediaQuery.of(context).size.width,
