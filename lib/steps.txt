@@ -1,0 +1,10 @@
+// 1. wrap the Widget with a FutureBuilder
+
+// 2. Add the fetch queury 
+
+// 3. print to check if the data is fetched
+// 4. convert the Document snapshot to the "project/class" Object
+// 5. if snapshot.hasData 
+
+// 6. map the class vars to the UI;
+
