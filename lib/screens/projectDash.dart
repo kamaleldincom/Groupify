@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import 'package:groupify/models/Project.dart';
+
 class ProjectDash extends StatefulWidget {
+  final List<Project> project;
+
+  const ProjectDash({Key key, @required this.project}) : super(key: key);
+
   @override
   _ProjectDashState createState() => _ProjectDashState();
 }
@@ -29,7 +35,7 @@ class _ProjectDashState extends State<ProjectDash> {
               elevation: 0,
               backgroundColor: Colors.transparent,
               title: Text(
-                'Application Development Project',
+                widget.project.toString(),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 // textAlign: TextAlign.center,

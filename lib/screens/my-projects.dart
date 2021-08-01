@@ -564,162 +564,226 @@ class _MyProjectsState extends State<MyProjects> {
                                                                     hintText: projects[index].pDesc),
                                                               ),
                                                             ),
-                                                            Container(
-                                                              margin: EdgeInsets
-                                                                  .only(
-                                                                      top: 15),
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    "Members",
-                                                                    // overflow: TextOverflow.ellipsis,
-                                                                    // maxLines: 2,
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w700,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 10,
-                                                                  ),
-                                                                  Container(
-                                                                    height: 40,
-                                                                    // margin:
-                                                                    //     EdgeInsets.only(bottom: 15),
-                                                                    child: ListView
-                                                                        .builder(
-                                                                      scrollDirection:
-                                                                          Axis.horizontal,
-                                                                      // itemExtent: 150,
-                                                                      shrinkWrap:
-                                                                          true,
-                                                                      itemCount:
-                                                                          6,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              index) {
-                                                                        return Container(
-                                                                          margin:
-                                                                              EdgeInsets.only(right: 15),
-                                                                          padding: EdgeInsets.symmetric(
-                                                                              horizontal: 8,
-                                                                              vertical: 2),
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.all(Radius.circular(10)),
-                                                                            color:
-                                                                                Colors.white,
-                                                                          ),
-                                                                          child: Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  // width: 80,
-                                                                                  child: Text(
-                                                                                    "Loai Al-Sharee",
-                                                                                    overflow: TextOverflow.ellipsis,
-                                                                                    maxLines: 2,
-                                                                                    style: TextStyle(
-                                                                                      color: Colors.black,
-                                                                                      fontSize: 12,
-                                                                                      fontWeight: FontWeight.w400,
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                SizedBox(
-                                                                                  width: 30,
-                                                                                  child: IconButton(
-                                                                                    icon: Icon(
-                                                                                      Icons.close,
-                                                                                      color: Colors.black,
-                                                                                    ),
-                                                                                    onPressed: () {},
-                                                                                  ),
-                                                                                ),
-                                                                              ]),
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 15,
-                                                                  ),
-                                                                  Container(
-                                                                    height: 40,
-                                                                    // margin:
-                                                                    //     EdgeInsets.only(bottom: 15),
-                                                                    child: ListView
-                                                                        .builder(
-                                                                      scrollDirection:
-                                                                          Axis.horizontal,
-                                                                      // itemExtent: 150,
-                                                                      shrinkWrap:
-                                                                          true,
-                                                                      itemCount:
-                                                                          6,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              index) {
-                                                                        return Container(
-                                                                          margin:
-                                                                              EdgeInsets.only(right: 15),
-                                                                          padding: EdgeInsets.symmetric(
-                                                                              horizontal: 8,
-                                                                              vertical: 2),
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.all(Radius.circular(10)),
-                                                                            color:
-                                                                                Colors.grey[800],
-                                                                          ),
-                                                                          child: Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  // width: 80,
-                                                                                  child: Text(
-                                                                                    "Abdulrahman Al-Abidi",
-                                                                                    overflow: TextOverflow.ellipsis,
-                                                                                    maxLines: 2,
-                                                                                    style: TextStyle(
-                                                                                      color: Color(0xFEFEFEFE),
-                                                                                      fontSize: 12,
-                                                                                      fontWeight: FontWeight.w400,
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                SizedBox(
-                                                                                  width: 30,
-                                                                                  child: IconButton(
-                                                                                    icon: Icon(
-                                                                                      Icons.add,
-                                                                                      color: Colors.white,
-                                                                                    ),
-                                                                                    onPressed: () {},
-                                                                                  ),
-                                                                                ),
-                                                                              ]),
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                          .fromLTRB(
+                                                                      0,
+                                                                      15,
+                                                                      0,
+                                                                      0),
+                                                              child: SizedBox(
+                                                                width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width,
+                                                                height: 45,
+                                                                child:
+                                                                    FlatButton(
+                                                                        onPressed:
+                                                                            () {
+                                                                          // AuthService
+                                                                          //     auth =
+                                                                          //     AuthService();
+                                                                          // auth.signOut();
+                                                                          // Navigator.pop(
+                                                                          //     context);
+                                                                          Navigator
+                                                                              .pushNamed(
+                                                                            context,
+                                                                            '/members',
+                                                                            // arguments: widget.usertype
+                                                                          );
+                                                                        },
+                                                                        color: Colors.grey[
+                                                                            800],
+                                                                        textColor:
+                                                                            Colors
+                                                                                .white,
+                                                                        child:
+                                                                            Row(
+                                                                          children: [
+                                                                            Icon(
+                                                                              Icons.group,
+                                                                              // size: 12.0,
+                                                                              // color: Colors.blueAccent,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 15,
+                                                                            ),
+                                                                            Text("Members",
+                                                                                style: TextStyle(
+                                                                                  // color: Colors.white,
+                                                                                  fontSize: 15,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                )),
+                                                                          ],
+                                                                        ),
+                                                                        shape:
+                                                                            RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              new BorderRadius.circular(15.0),
+                                                                          // side: BorderSide(color: Colors.black),
+                                                                        )),
                                                               ),
                                                             ),
+
+                                                            // Container(
+                                                            //   margin: EdgeInsets
+                                                            //       .only(
+                                                            //           top: 15),
+                                                            //   child: Column(
+                                                            //     mainAxisAlignment:
+                                                            //         MainAxisAlignment
+                                                            //             .start,
+                                                            //     crossAxisAlignment:
+                                                            //         CrossAxisAlignment
+                                                            //             .start,
+                                                            //     children: [
+                                                            //       Text(
+                                                            //         "Members",
+                                                            //         // overflow: TextOverflow.ellipsis,
+                                                            //         // maxLines: 2,
+                                                            //         style: TextStyle(
+                                                            //             fontSize:
+                                                            //                 12.0,
+                                                            //             fontWeight:
+                                                            //                 FontWeight
+                                                            //                     .w700,
+                                                            //             color: Colors
+                                                            //                 .grey),
+                                                            //       ),
+                                                            //       SizedBox(
+                                                            //         height: 10,
+                                                            //       ),
+                                                            //       Container(
+                                                            //         height: 40,
+                                                            //         // margin:
+                                                            //         //     EdgeInsets.only(bottom: 15),
+                                                            //         child: ListView
+                                                            //             .builder(
+                                                            //           scrollDirection:
+                                                            //               Axis.horizontal,
+                                                            //           // itemExtent: 150,
+                                                            //           shrinkWrap:
+                                                            //               true,
+                                                            //           itemCount:
+                                                            //               6,
+                                                            //           itemBuilder:
+                                                            //               (context,
+                                                            //                   index) {
+                                                            //             return Container(
+                                                            //               margin:
+                                                            //                   EdgeInsets.only(right: 15),
+                                                            //               padding: EdgeInsets.symmetric(
+                                                            //                   horizontal: 8,
+                                                            //                   vertical: 2),
+                                                            //               decoration:
+                                                            //                   BoxDecoration(
+                                                            //                 borderRadius:
+                                                            //                     BorderRadius.all(Radius.circular(10)),
+                                                            //                 color:
+                                                            //                     Colors.white,
+                                                            //               ),
+                                                            //               child: Row(
+                                                            //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            //                   crossAxisAlignment: CrossAxisAlignment.center,
+                                                            //                   children: [
+                                                            //                     SizedBox(
+                                                            //                       // width: 80,
+                                                            //                       child: Text(
+                                                            //                         "Loai Al-Sharee",
+                                                            //                         overflow: TextOverflow.ellipsis,
+                                                            //                         maxLines: 2,
+                                                            //                         style: TextStyle(
+                                                            //                           color: Colors.black,
+                                                            //                           fontSize: 12,
+                                                            //                           fontWeight: FontWeight.w400,
+                                                            //                         ),
+                                                            //                       ),
+                                                            //                     ),
+                                                            //                     SizedBox(
+                                                            //                       width: 30,
+                                                            //                       child: IconButton(
+                                                            //                         icon: Icon(
+                                                            //                           Icons.close,
+                                                            //                           color: Colors.black,
+                                                            //                         ),
+                                                            //                         onPressed: () {},
+                                                            //                       ),
+                                                            //                     ),
+                                                            //                   ]),
+                                                            //             );
+                                                            //           },
+                                                            //         ),
+                                                            //       ),
+                                                            //       SizedBox(
+                                                            //         height: 15,
+                                                            //       ),
+                                                            //       Container(
+                                                            //         height: 40,
+                                                            //         // margin:
+                                                            //         //     EdgeInsets.only(bottom: 15),
+                                                            //         child: ListView
+                                                            //             .builder(
+                                                            //           scrollDirection:
+                                                            //               Axis.horizontal,
+                                                            //           // itemExtent: 150,
+                                                            //           shrinkWrap:
+                                                            //               true,
+                                                            //           itemCount:
+                                                            //               6,
+                                                            //           itemBuilder:
+                                                            //               (context,
+                                                            //                   index) {
+                                                            //             return Container(
+                                                            //               margin:
+                                                            //                   EdgeInsets.only(right: 15),
+                                                            //               padding: EdgeInsets.symmetric(
+                                                            //                   horizontal: 8,
+                                                            //                   vertical: 2),
+                                                            //               decoration:
+                                                            //                   BoxDecoration(
+                                                            //                 borderRadius:
+                                                            //                     BorderRadius.all(Radius.circular(10)),
+                                                            //                 color:
+                                                            //                     Colors.grey[800],
+                                                            //               ),
+                                                            //               child: Row(
+                                                            //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            //                   crossAxisAlignment: CrossAxisAlignment.center,
+                                                            //                   children: [
+                                                            //                     SizedBox(
+                                                            //                       // width: 80,
+                                                            //                       child: Text(
+                                                            //                         "Abdulrahman Al-Abidi",
+                                                            //                         overflow: TextOverflow.ellipsis,
+                                                            //                         maxLines: 2,
+                                                            //                         style: TextStyle(
+                                                            //                           color: Color(0xFEFEFEFE),
+                                                            //                           fontSize: 12,
+                                                            //                           fontWeight: FontWeight.w400,
+                                                            //                         ),
+                                                            //                       ),
+                                                            //                     ),
+                                                            //                     SizedBox(
+                                                            //                       width: 30,
+                                                            //                       child: IconButton(
+                                                            //                         icon: Icon(
+                                                            //                           Icons.add,
+                                                            //                           color: Colors.white,
+                                                            //                         ),
+                                                            //                         onPressed: () {},
+                                                            //                       ),
+                                                            //                     ),
+                                                            //                   ]),
+                                                            //             );
+                                                            //           },
+                                                            //         ),
+                                                            //       ),
+                                                            //     ],
+                                                            //   ),
+                                                            // ),
                                                           ],
                                                         ),
                                                       ),
@@ -992,7 +1056,414 @@ class _MyProjectsState extends State<MyProjects> {
                                                                   child:
                                                                       FlatButton(
                                                                     onPressed:
-                                                                        () {},
+                                                                        () {
+                                                                      showModalBottomSheet(
+                                                                          context:
+                                                                              context,
+                                                                          // enableDrag: true,
+                                                                          isDismissible:
+                                                                              true,
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          shape:
+                                                                              RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(14.0),
+                                                                          ),
+                                                                          builder:
+                                                                              (BuildContext bc) {
+                                                                            return Wrap(
+                                                                              children: [
+                                                                                Container(
+                                                                                  margin: EdgeInsets.only(bottom: 60),
+                                                                                  // height:
+                                                                                  //     MediaQuery.of(context).size.height / 1.3,
+                                                                                  child: Column(children: <Widget>[
+                                                                                    //modal title
+                                                                                    //
+                                                                                    //
+
+                                                                                    SizedBox(
+                                                                                      // height: 15,
+                                                                                      child: Container(
+                                                                                        margin: EdgeInsets.only(top: 10, bottom: 10),
+                                                                                        height: 5,
+                                                                                        width: 35,
+                                                                                        // color: Colors.grey,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: Colors.grey,
+                                                                                          borderRadius: BorderRadius.circular(5),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+
+                                                                                    //content
+                                                                                    //
+                                                                                    //
+
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                                                                                      child: Column(
+                                                                                        children: [
+                                                                                          Center(
+                                                                                            child: CircleAvatar(
+                                                                                              backgroundColor: Colors.grey,
+                                                                                              child: Text("AD"),
+                                                                                              radius: 40,
+                                                                                            ),
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsets.all(15.0),
+                                                                                            child: Column(children: <Widget>[
+                                                                                              Text(
+                                                                                                "Change profile picture",
+                                                                                                style: TextStyle(
+                                                                                                  color: Colors.blueAccent,
+                                                                                                  fontSize: 12,
+                                                                                                  fontWeight: FontWeight.w400,
+                                                                                                ),
+                                                                                              ),
+                                                                                              SizedBox(height: 10),
+                                                                                              Text(
+                                                                                                "Created by " + projects[index].ownerName,
+                                                                                                style: TextStyle(
+                                                                                                  color: Colors.grey,
+                                                                                                  fontSize: 12,
+                                                                                                  fontWeight: FontWeight.w400,
+                                                                                                ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                ", at " + projects[index].createdAt.split(' ')[0],
+                                                                                                style: TextStyle(
+                                                                                                  color: Colors.grey,
+                                                                                                  fontSize: 12,
+                                                                                                  fontWeight: FontWeight.w400,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ]),
+                                                                                          ),
+                                                                                          Container(
+                                                                                            margin: EdgeInsets.only(bottom: 10),
+                                                                                            decoration: BoxDecoration(
+                                                                                              color: Colors.white,
+                                                                                              borderRadius: BorderRadius.circular(20),
+                                                                                            ),
+                                                                                            child: TextField(
+                                                                                              decoration: InputDecoration(
+                                                                                                fillColor: Colors.grey[900],
+                                                                                                filled: true,
+                                                                                                enabledBorder: OutlineInputBorder(
+                                                                                                    borderRadius: BorderRadius.all(
+                                                                                                      Radius.circular(15.0),
+                                                                                                    ),
+                                                                                                    borderSide: BorderSide(color: Colors.grey[900], width: 1.0)),
+                                                                                                focusedBorder: OutlineInputBorder(
+                                                                                                    borderRadius: BorderRadius.all(
+                                                                                                      Radius.circular(15.0),
+                                                                                                    ),
+                                                                                                    borderSide: BorderSide(color: Colors.grey[700], width: 1.0)),
+                                                                                                contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+                                                                                                border: InputBorder.none,
+                                                                                                hintText: projects[index].pName,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Container(
+                                                                                            // margin: EdgeInsets.only(bottom: 10),
+                                                                                            decoration: BoxDecoration(
+                                                                                              color: Colors.white,
+                                                                                              borderRadius: BorderRadius.circular(20),
+                                                                                            ),
+                                                                                            child: TextField(
+                                                                                              maxLines: 5,
+                                                                                              decoration: InputDecoration(
+                                                                                                  fillColor: Colors.grey[900],
+                                                                                                  filled: true,
+                                                                                                  enabledBorder: OutlineInputBorder(
+                                                                                                      borderRadius: BorderRadius.all(
+                                                                                                        Radius.circular(15.0),
+                                                                                                      ),
+                                                                                                      borderSide: BorderSide(color: Colors.grey[900], width: 1.0)),
+                                                                                                  focusedBorder: OutlineInputBorder(
+                                                                                                      borderRadius: BorderRadius.all(
+                                                                                                        Radius.circular(15.0),
+                                                                                                      ),
+                                                                                                      borderSide: BorderSide(color: Colors.grey[700], width: 1.0)),
+                                                                                                  contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+                                                                                                  border: InputBorder.none,
+                                                                                                  hintText: projects[index].pDesc),
+                                                                                            ),
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                                                                                            child: SizedBox(
+                                                                                              width: MediaQuery.of(context).size.width,
+                                                                                              height: 45,
+                                                                                              child: FlatButton(
+                                                                                                  onPressed: () {
+                                                                                                    // AuthService
+                                                                                                    //     auth =
+                                                                                                    //     AuthService();
+                                                                                                    // auth.signOut();
+                                                                                                    // Navigator.pop(
+                                                                                                    //     context);
+                                                                                                    Navigator.pushNamed(
+                                                                                                      context,
+                                                                                                      '/members',
+                                                                                                      // arguments: widget.usertype
+                                                                                                    );
+                                                                                                  },
+                                                                                                  color: Colors.grey[800],
+                                                                                                  textColor: Colors.white,
+                                                                                                  child: Row(
+                                                                                                    children: [
+                                                                                                      Icon(
+                                                                                                        Icons.group,
+                                                                                                        // size: 12.0,
+                                                                                                        // color: Colors.blueAccent,
+                                                                                                      ),
+                                                                                                      SizedBox(
+                                                                                                        width: 15,
+                                                                                                      ),
+                                                                                                      Text("Members",
+                                                                                                          style: TextStyle(
+                                                                                                            // color: Colors.white,
+                                                                                                            fontSize: 15,
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                          )),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                  shape: RoundedRectangleBorder(
+                                                                                                    borderRadius: new BorderRadius.circular(15.0),
+                                                                                                    // side: BorderSide(color: Colors.black),
+                                                                                                  )),
+                                                                                            ),
+                                                                                          ),
+
+                                                                                          // Container(
+                                                                                          //   margin: EdgeInsets
+                                                                                          //       .only(
+                                                                                          //           top: 15),
+                                                                                          //   child: Column(
+                                                                                          //     mainAxisAlignment:
+                                                                                          //         MainAxisAlignment
+                                                                                          //             .start,
+                                                                                          //     crossAxisAlignment:
+                                                                                          //         CrossAxisAlignment
+                                                                                          //             .start,
+                                                                                          //     children: [
+                                                                                          //       Text(
+                                                                                          //         "Members",
+                                                                                          //         // overflow: TextOverflow.ellipsis,
+                                                                                          //         // maxLines: 2,
+                                                                                          //         style: TextStyle(
+                                                                                          //             fontSize:
+                                                                                          //                 12.0,
+                                                                                          //             fontWeight:
+                                                                                          //                 FontWeight
+                                                                                          //                     .w700,
+                                                                                          //             color: Colors
+                                                                                          //                 .grey),
+                                                                                          //       ),
+                                                                                          //       SizedBox(
+                                                                                          //         height: 10,
+                                                                                          //       ),
+                                                                                          //       Container(
+                                                                                          //         height: 40,
+                                                                                          //         // margin:
+                                                                                          //         //     EdgeInsets.only(bottom: 15),
+                                                                                          //         child: ListView
+                                                                                          //             .builder(
+                                                                                          //           scrollDirection:
+                                                                                          //               Axis.horizontal,
+                                                                                          //           // itemExtent: 150,
+                                                                                          //           shrinkWrap:
+                                                                                          //               true,
+                                                                                          //           itemCount:
+                                                                                          //               6,
+                                                                                          //           itemBuilder:
+                                                                                          //               (context,
+                                                                                          //                   index) {
+                                                                                          //             return Container(
+                                                                                          //               margin:
+                                                                                          //                   EdgeInsets.only(right: 15),
+                                                                                          //               padding: EdgeInsets.symmetric(
+                                                                                          //                   horizontal: 8,
+                                                                                          //                   vertical: 2),
+                                                                                          //               decoration:
+                                                                                          //                   BoxDecoration(
+                                                                                          //                 borderRadius:
+                                                                                          //                     BorderRadius.all(Radius.circular(10)),
+                                                                                          //                 color:
+                                                                                          //                     Colors.white,
+                                                                                          //               ),
+                                                                                          //               child: Row(
+                                                                                          //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          //                   crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                          //                   children: [
+                                                                                          //                     SizedBox(
+                                                                                          //                       // width: 80,
+                                                                                          //                       child: Text(
+                                                                                          //                         "Loai Al-Sharee",
+                                                                                          //                         overflow: TextOverflow.ellipsis,
+                                                                                          //                         maxLines: 2,
+                                                                                          //                         style: TextStyle(
+                                                                                          //                           color: Colors.black,
+                                                                                          //                           fontSize: 12,
+                                                                                          //                           fontWeight: FontWeight.w400,
+                                                                                          //                         ),
+                                                                                          //                       ),
+                                                                                          //                     ),
+                                                                                          //                     SizedBox(
+                                                                                          //                       width: 30,
+                                                                                          //                       child: IconButton(
+                                                                                          //                         icon: Icon(
+                                                                                          //                           Icons.close,
+                                                                                          //                           color: Colors.black,
+                                                                                          //                         ),
+                                                                                          //                         onPressed: () {},
+                                                                                          //                       ),
+                                                                                          //                     ),
+                                                                                          //                   ]),
+                                                                                          //             );
+                                                                                          //           },
+                                                                                          //         ),
+                                                                                          //       ),
+                                                                                          //       SizedBox(
+                                                                                          //         height: 15,
+                                                                                          //       ),
+                                                                                          //       Container(
+                                                                                          //         height: 40,
+                                                                                          //         // margin:
+                                                                                          //         //     EdgeInsets.only(bottom: 15),
+                                                                                          //         child: ListView
+                                                                                          //             .builder(
+                                                                                          //           scrollDirection:
+                                                                                          //               Axis.horizontal,
+                                                                                          //           // itemExtent: 150,
+                                                                                          //           shrinkWrap:
+                                                                                          //               true,
+                                                                                          //           itemCount:
+                                                                                          //               6,
+                                                                                          //           itemBuilder:
+                                                                                          //               (context,
+                                                                                          //                   index) {
+                                                                                          //             return Container(
+                                                                                          //               margin:
+                                                                                          //                   EdgeInsets.only(right: 15),
+                                                                                          //               padding: EdgeInsets.symmetric(
+                                                                                          //                   horizontal: 8,
+                                                                                          //                   vertical: 2),
+                                                                                          //               decoration:
+                                                                                          //                   BoxDecoration(
+                                                                                          //                 borderRadius:
+                                                                                          //                     BorderRadius.all(Radius.circular(10)),
+                                                                                          //                 color:
+                                                                                          //                     Colors.grey[800],
+                                                                                          //               ),
+                                                                                          //               child: Row(
+                                                                                          //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          //                   crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                          //                   children: [
+                                                                                          //                     SizedBox(
+                                                                                          //                       // width: 80,
+                                                                                          //                       child: Text(
+                                                                                          //                         "Abdulrahman Al-Abidi",
+                                                                                          //                         overflow: TextOverflow.ellipsis,
+                                                                                          //                         maxLines: 2,
+                                                                                          //                         style: TextStyle(
+                                                                                          //                           color: Color(0xFEFEFEFE),
+                                                                                          //                           fontSize: 12,
+                                                                                          //                           fontWeight: FontWeight.w400,
+                                                                                          //                         ),
+                                                                                          //                       ),
+                                                                                          //                     ),
+                                                                                          //                     SizedBox(
+                                                                                          //                       width: 30,
+                                                                                          //                       child: IconButton(
+                                                                                          //                         icon: Icon(
+                                                                                          //                           Icons.add,
+                                                                                          //                           color: Colors.white,
+                                                                                          //                         ),
+                                                                                          //                         onPressed: () {},
+                                                                                          //                       ),
+                                                                                          //                     ),
+                                                                                          //                   ]),
+                                                                                          //             );
+                                                                                          //           },
+                                                                                          //         ),
+                                                                                          //       ),
+                                                                                          //     ],
+                                                                                          //   ),
+                                                                                          // ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+
+                                                                                    //actions
+                                                                                    //
+                                                                                    //
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                                                                                      child: SizedBox(
+                                                                                        width: MediaQuery.of(context).size.width,
+                                                                                        height: 45,
+                                                                                        child: Row(
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            SizedBox(
+                                                                                              width: 150,
+                                                                                              child: FlatButton(
+                                                                                                  onPressed: () {
+                                                                                                    Navigator.of(context).pop();
+                                                                                                  },
+                                                                                                  // color: Color(0xFEFEFEFE),
+                                                                                                  // textColor: Colors.blueAccent,
+                                                                                                  child: Text("Cancel",
+                                                                                                      style: TextStyle(
+                                                                                                        // color: Colors.white,
+                                                                                                        fontSize: 15,
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      )),
+                                                                                                  shape: RoundedRectangleBorder(
+                                                                                                    borderRadius: new BorderRadius.circular(10.0),
+                                                                                                    // side: BorderSide(color: Colors.black),
+                                                                                                  )),
+                                                                                            ),
+                                                                                            SizedBox(
+                                                                                              width: 150,
+                                                                                              child: FlatButton(
+                                                                                                  onPressed: () {
+                                                                                                    Navigator.of(context).pushNamedAndRemoveUntil(
+                                                                                                        // context,
+                                                                                                        '/login',
+                                                                                                        (Route<dynamic> route) => false
+                                                                                                        // arguments: widget.usertype
+                                                                                                        );
+                                                                                                  },
+                                                                                                  color: Colors.blueAccent,
+                                                                                                  textColor: Colors.black,
+                                                                                                  child: Text("Save changes",
+                                                                                                      style: TextStyle(
+                                                                                                        // color: Colors.white,
+                                                                                                        fontSize: 15,
+                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                      )),
+                                                                                                  shape: RoundedRectangleBorder(
+                                                                                                    borderRadius: new BorderRadius.circular(10.0),
+                                                                                                    // side: BorderSide(color: Colors.black),
+                                                                                                  )),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ]),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          });
+                                                                    },
                                                                     // color: Colors.grey[900],
                                                                     textColor:
                                                                         Colors
