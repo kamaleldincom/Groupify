@@ -64,6 +64,7 @@ class _MyProjectsState extends State<MyProjects> {
           ///
           ///
           IconButton(
+            /// add icon
             icon: Icon(
               Icons.add,
               color: Colors.white,
@@ -233,6 +234,9 @@ class _MyProjectsState extends State<MyProjects> {
                                     ),
                                     SizedBox(
                                       width: 150,
+
+                                      /// Add new project ViewModel
+                                      ///
                                       child: FlatButton(
                                           onPressed: () async {
                                             if (projectNameController.text
