@@ -287,6 +287,7 @@ class _MyProjectsState extends State<MyProjects> {
                                               projectNameController.clear();
                                               Navigator.pop(context);
                                               Navigator.pop(context);
+                                              setState((){});
                                             }
                                           },
                                           color: Colors.blueAccent,
@@ -496,6 +497,8 @@ class _MyProjectsState extends State<MyProjects> {
                                                                             20),
                                                               ),
                                                               child: TextField(
+                                                                controller:
+                                              projectNameController,
                                                                 decoration:
                                                                     InputDecoration(
                                                                   fillColor:
@@ -547,6 +550,7 @@ class _MyProjectsState extends State<MyProjects> {
                                                                             20),
                                                               ),
                                                               child: TextField(
+                                                                  controller: projectDescController,
                                                                 maxLines: 5,
                                                                 decoration: InputDecoration(
                                                                     fillColor: Colors.grey[900],
@@ -839,13 +843,62 @@ class _MyProjectsState extends State<MyProjects> {
                                                               SizedBox(
                                                                 width: 150,
                                                                 child: FlatButton(
-                                                                    onPressed: () {
-                                                                      Navigator.of(context).pushNamedAndRemoveUntil(
-                                                                          // context,
-                                                                          '/login',
-                                                                          (Route<dynamic> route) => false
-                                                                          // arguments: widget.usertype
-                                                                          );
+                                                                    onPressed: () async  {   
+                                                                      if                                                             
+                                                (projectNameController.text
+                                                    .trim()
+                                                    .isNotEmpty &&
+                                                projectDescController.text
+                                                    .trim()
+                                                    .isNotEmpty) {
+                                              customProgressIdicator(context);
+                                              // get the current user id
+
+                                              // get owner name and id from users from firestore
+                                              DocumentSnapshot doc =
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection('users')
+                                                      .doc(u.id)
+                                                      .get();
+                                              // map from doc snap to User
+                                              u = User.fromMap(doc);
+
+                                              // make object project
+
+                                              // Project project;
+                                              // project = Project(
+                                              //   pName: projectNameController
+                                              //       .text
+                                              //       .trim(),
+                                              //   pDesc: projectDescController
+                                              //       .text
+                                              //       .trim(),
+                                              //   ownerId: u.id,
+                                              //   ownerName: u.name,
+                                              //   createdAt:
+                                              //       DateTime.now().toString(),
+                                              // );
+                                              // set to firestore
+                                              DocumentReference docRef =
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection('projects')
+                                                      .doc(projects[index].id);
+
+                                              // project.id = docRef.id;
+
+                                              docRef.update({
+                                                "pName":projectNameController.text.trim(),
+                                                "pDesc":projectDescController.text.trim(),
+                                              });
+                                              projectDescController.clear();
+                                              projectNameController.clear();
+                                              Navigator.pop(context);
+                                              Navigator.pop(context);
+                                              setState((){});
+                                                    }
+                                                                  
                                                                     },
                                                                     color: Colors.blueAccent,
                                                                     textColor: Colors.black,
