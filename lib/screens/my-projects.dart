@@ -1843,7 +1843,24 @@ class _MyProjectsState extends State<MyProjects> {
                                                                   child:
                                                                       FlatButton(
                                                                     onPressed:
-                                                                        () {},
+                                                                        () async {
+                                                                          // DocumentReference docRef =
+                                                                          customProgressIdicator(context);
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection('projects')
+                                                      .doc(projects[index].id).delete();
+
+
+                                              // project.id = docRef.id;
+
+                                              // docRef;
+                                              // projectDescController.clear();
+                                              // projectNameController.clear();
+                                              Navigator.pop(context);
+                                              Navigator.pop(context);
+                                              setState((){});
+                                                                        },
                                                                     // color: Colors.grey[900],
                                                                     textColor:
                                                                         Colors
