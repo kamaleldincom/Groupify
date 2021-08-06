@@ -8,12 +8,14 @@ class Board {
   String bName;
   String bDesc;
   String createdAt;
+  int taskCount;
   Board({
     this.id,
     this.projectId,
     this.bName,
     this.bDesc,
     this.createdAt,
+    this.taskCount,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,6 +25,7 @@ class Board {
       'bName': bName,
       'bDesc': bDesc,
       'createdAt': createdAt,
+      'taskCount': taskCount,
     };
   }
 
@@ -33,6 +36,7 @@ class Board {
       bName: map['bName'],
       bDesc: map['bDesc'],
       createdAt: map['createdAt'],
+      taskCount: map['taskCount'],
     );
   }
 
@@ -42,6 +46,6 @@ class Board {
 
   @override
   String toString() {
-    return 'Board(id: $id, projectId: $projectId, bName: $bName, bDesc: $bDesc, createdAt: $createdAt)';
+    return 'Board(id: $id, projectId: $projectId, bName: $bName, bDesc: $bDesc, createdAt: $createdAt, taskCount: $taskCount)';
   }
 }

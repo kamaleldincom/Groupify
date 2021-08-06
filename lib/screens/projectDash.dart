@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-
+import 'package:groupify/screens/widgets/circleProgress.dart';
 import 'package:groupify/models/Project.dart';
+import 'package:groupify/models/Board.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProjectDash extends StatefulWidget {
-  final List<Project> project;
+  final Project project;
 
   const ProjectDash({Key key, @required this.project}) : super(key: key);
 
@@ -13,6 +15,8 @@ class ProjectDash extends StatefulWidget {
 }
 
 class _ProjectDashState extends State<ProjectDash> {
+  final TextEditingController boardNameController = TextEditingController();
+  final TextEditingController boardDescController = TextEditingController();
   double percent = 0.0;
 
   String dropdownvalue = 'Choose the project';
@@ -28,14 +32,28 @@ class _ProjectDashState extends State<ProjectDash> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: null,
+        future: FirebaseFirestore.instance
+              .collection('projects')
+              .doc(widget.project.id).collection('boards')
+              .orderBy('taskCount', descending: true)
+              .get(),
         builder: (context, snapshot) {
+          
+          if (snapshot.hasData) {
+            QuerySnapshot query = snapshot.data;
+              List<Board> boards =
+                  query.docs.map((doc) => Board.fromMap(doc)).toList();
+            
+            boards.forEach((element) {
+              print(element.toString());
+            });
+
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
               backgroundColor: Colors.transparent,
               title: Text(
-                widget.project.toString(),
+                widget.project.pName,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 // textAlign: TextAlign.center,
@@ -1094,6 +1112,7 @@ class _ProjectDashState extends State<ProjectDash> {
                                                                   .circular(20),
                                                         ),
                                                         child: TextField(
+                                                          controller: boardNameController,
                                                           decoration:
                                                               InputDecoration(
                                                                   fillColor:
@@ -1147,6 +1166,7 @@ class _ProjectDashState extends State<ProjectDash> {
                                                                   .circular(20),
                                                         ),
                                                         child: TextField(
+                                                          controller: boardDescController,
                                                           maxLines: 5,
                                                           decoration:
                                                               InputDecoration(
@@ -1254,18 +1274,58 @@ class _ProjectDashState extends State<ProjectDash> {
                                                         SizedBox(
                                                           width: 150,
                                                           child: FlatButton(
-                                                              onPressed: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .pushNamedAndRemoveUntil(
-                                                                        // context,
-                                                                        '/login',
-                                                                        (Route<dynamic>
-                                                                                route) =>
-                                                                            false
-                                                                        // arguments: widget.usertype
-                                                                        );
-                                                              },
+                                                              onPressed: () async {
+                                            if (boardNameController.text
+                                                    .trim()
+                                                    .isNotEmpty &&
+                                                boardDescController.text
+                                                    .trim()
+                                                    .isNotEmpty) {
+                                              customProgressIdicator(context);
+                                              // get the current user id
+
+                                              // get owner name and id from users from firestore
+                                              // DocumentSnapshot doc =
+                                              //     await FirebaseFirestore
+                                              //         .instance
+                                              //         .collection('users')
+                                              //         .doc(u.id)
+                                              //         .get();
+                                              // map from doc snap to User
+                                              // u = User.fromMap(doc);
+
+                                              // make object project
+
+                                              Board board;
+                                              board = Board(
+                                                bName: boardNameController
+                                                    .text
+                                                    .trim(),
+                                                bDesc: boardDescController
+                                                    .text
+                                                    .trim(),
+                                                projectId: widget.project.id,
+                                                // ownerName: u.name,
+                                                createdAt:
+                                                    DateTime.now().toString(),
+                                                taskCount: 0,
+                                              );
+                                              // set to firestore
+                                              DocumentReference docRef =
+                                                  await FirebaseFirestore.instance
+              .collection('projects').doc(board.projectId).collection('boards').doc();
+              
+
+                                              board.id = docRef.id;
+
+                                              docRef.set(board.toMap());
+                                              boardDescController.clear();
+                                              boardNameController.clear();
+                                              Navigator.pop(context);
+                                              Navigator.pop(context);
+                                              setState((){});
+                                            }
+                                          },
                                                               color: Colors
                                                                   .blueAccent,
                                                               textColor:
@@ -1317,7 +1377,7 @@ class _ProjectDashState extends State<ProjectDash> {
                         scrollDirection: Axis.horizontal,
                         itemExtent: 340,
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: boards.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
@@ -1360,7 +1420,7 @@ class _ProjectDashState extends State<ProjectDash> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    "Front End Development",
+                                                    boards[index].bName,
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
@@ -1374,17 +1434,20 @@ class _ProjectDashState extends State<ProjectDash> {
                                                   //   height: 2,
                                                   // ),
                                                   Text(
-                                                    "Created by Me, at 01/4/2020",
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    // maxLines: 3,
-                                                    style: TextStyle(
-                                                      color: Colors.grey,
-                                                      fontSize: 8,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                                  ),
+                                                                      "Created at " +
+                                                                          boards[index]
+                                                                              .createdAt
+                                                                              .split(' ')[0],
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .grey,
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontWeight:
+                                                                            FontWeight.w400,
+                                                                      ),
+                                                                    ),
                                                 ],
                                               ),
                                             ),
@@ -1623,7 +1686,7 @@ class _ProjectDashState extends State<ProjectDash> {
                                             ),
                                           ]),
                                       Text(
-                                        "Congratulations Team, we have successfully finished the first phase of development as of Today. ",
+                                        boards[index].bDesc,
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 3,
                                         style: TextStyle(
@@ -1915,6 +1978,14 @@ class _ProjectDashState extends State<ProjectDash> {
               ),
             ),
           );
+          } else if (snapshot.hasError) {
+              print(snapshot.error.toString());
+              return Container(
+                  child: Center(child: Text(snapshot.error.toString())));
+            } else {
+              return Container(
+                  child: Center(child: CircularProgressIndicator()));
+            }
         });
   }
 }

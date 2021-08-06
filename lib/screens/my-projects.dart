@@ -7,6 +7,7 @@ import 'package:groupify/screens/widgets/circleProgress.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:groupify/screens/projectDash.dart';
 
 class MyProjects extends StatefulWidget {
   MyProjects({Key key}) : super(key: key);
@@ -1905,10 +1906,11 @@ class _MyProjectsState extends State<MyProjects> {
 
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(
+                              Navigator.push(
                                 context,
-                                '/projectDash',
-                                arguments: projects[index],
+                              MaterialPageRoute(builder: (BuildContext context) => ProjectDash(project: projects[index]))
+                              // '/projectDash',
+                              //   arguments: projects[index],
                               );
                             },
                             child: Column(
