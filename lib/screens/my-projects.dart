@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:groupify/models/Member.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:groupify/models/Project.dart';
 import 'package:groupify/models/User.dart';
+import 'package:groupify/screens/members.dart';
 import 'package:groupify/screens/widgets/circleProgress.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter/material.dart';
@@ -260,7 +262,7 @@ class _MyProjectsState extends State<MyProjects> {
                                               u = User.fromMap(doc);
 
                                               // make object project
-
+                                              List<Member> pMembers = [];
                                               Project project;
                                               project = Project(
                                                 pName: projectNameController
@@ -273,22 +275,24 @@ class _MyProjectsState extends State<MyProjects> {
                                                 ownerName: u.name,
                                                 createdAt:
                                                     DateTime.now().toString(),
+                                                // pMembers: [],
+                                                pMembers: pMembers,
                                               );
+
                                               // set to firestore
                                               DocumentReference docRef =
-                                                  await FirebaseFirestore
-                                                      .instance
+                                                  FirebaseFirestore.instance
                                                       .collection('projects')
                                                       .doc();
 
                                               project.id = docRef.id;
 
-                                              docRef.set(project.toMap());
+                                              await docRef.set(project.toMap());
                                               projectDescController.clear();
                                               projectNameController.clear();
                                               Navigator.pop(context);
                                               Navigator.pop(context);
-                                              setState((){});
+                                              setState(() {});
                                             }
                                           },
                                           color: Colors.blueAccent,
@@ -499,7 +503,7 @@ class _MyProjectsState extends State<MyProjects> {
                                                               ),
                                                               child: TextField(
                                                                 controller:
-                                              projectNameController,
+                                                                    projectNameController,
                                                                 decoration:
                                                                     InputDecoration(
                                                                   fillColor:
@@ -551,7 +555,8 @@ class _MyProjectsState extends State<MyProjects> {
                                                                             20),
                                                               ),
                                                               child: TextField(
-                                                                  controller: projectDescController,
+                                                                controller:
+                                                                    projectDescController,
                                                                 maxLines: 5,
                                                                 decoration: InputDecoration(
                                                                     fillColor: Colors.grey[900],
@@ -597,12 +602,12 @@ class _MyProjectsState extends State<MyProjects> {
                                                                           // auth.signOut();
                                                                           // Navigator.pop(
                                                                           //     context);
-                                                                          Navigator
-                                                                              .pushNamed(
-                                                                            context,
-                                                                            '/members',
-                                                                            // arguments: widget.usertype
-                                                                          );
+                                                                          Navigator.push(
+                                                                              context,
+                                                                              MaterialPageRoute(builder: (BuildContext context) => Members(project: projects[index]))
+                                                                              // '/projectDash',
+                                                                              //   arguments: projects[index],
+                                                                              );
                                                                         },
                                                                         color: Colors.grey[
                                                                             800],
@@ -843,80 +848,74 @@ class _MyProjectsState extends State<MyProjects> {
                                                               ),
                                                               SizedBox(
                                                                 width: 150,
-                                                                child: FlatButton(
-                                                                    onPressed: () async  {   
-                                                                      if                                                             
-                                                (projectNameController.text
-                                                    .trim()
-                                                    .isNotEmpty &&
-                                                projectDescController.text
-                                                    .trim()
-                                                    .isNotEmpty) {
-                                              customProgressIdicator(context);
-                                              // get the current user id
+                                                                child:
+                                                                    FlatButton(
+                                                                        onPressed:
+                                                                            () async {
+                                                                          if (projectNameController.text.trim().isNotEmpty &&
+                                                                              projectDescController.text.trim().isNotEmpty) {
+                                                                            customProgressIdicator(context);
+                                                                            // get the current user id
 
-                                              // get owner name and id from users from firestore
-                                              DocumentSnapshot doc =
-                                                  await FirebaseFirestore
-                                                      .instance
-                                                      .collection('users')
-                                                      .doc(u.id)
-                                                      .get();
-                                              // map from doc snap to User
-                                              u = User.fromMap(doc);
+                                                                            // get owner name and id from users from firestore
+                                                                            DocumentSnapshot
+                                                                                doc =
+                                                                                await FirebaseFirestore.instance.collection('users').doc(u.id).get();
+                                                                            // map from doc snap to User
+                                                                            u = User.fromMap(doc);
 
-                                              // make object project
+                                                                            // make object project
 
-                                              // Project project;
-                                              // project = Project(
-                                              //   pName: projectNameController
-                                              //       .text
-                                              //       .trim(),
-                                              //   pDesc: projectDescController
-                                              //       .text
-                                              //       .trim(),
-                                              //   ownerId: u.id,
-                                              //   ownerName: u.name,
-                                              //   createdAt:
-                                              //       DateTime.now().toString(),
-                                              // );
-                                              // set to firestore
-                                              DocumentReference docRef =
-                                                  await FirebaseFirestore
-                                                      .instance
-                                                      .collection('projects')
-                                                      .doc(projects[index].id);
+                                                                            // Project project;
+                                                                            // project = Project(
+                                                                            //   pName: projectNameController
+                                                                            //       .text
+                                                                            //       .trim(),
+                                                                            //   pDesc: projectDescController
+                                                                            //       .text
+                                                                            //       .trim(),
+                                                                            //   ownerId: u.id,
+                                                                            //   ownerName: u.name,
+                                                                            //   createdAt:
+                                                                            //       DateTime.now().toString(),
+                                                                            // );
+                                                                            // set to firestore
+                                                                            DocumentReference
+                                                                                docRef =
+                                                                                await FirebaseFirestore.instance.collection('projects').doc(projects[index].id);
 
-                                              // project.id = docRef.id;
+                                                                            // project.id = docRef.id;
 
-                                              docRef.update({
-                                                "pName":projectNameController.text.trim(),
-                                                "pDesc":projectDescController.text.trim(),
-                                              });
-                                              projectDescController.clear();
-                                              projectNameController.clear();
-                                              Navigator.pop(context);
-                                              Navigator.pop(context);
-                                              setState((){});
-                                                    }
-                                                                  
-                                                                    },
-                                                                    color: Colors.blueAccent,
-                                                                    textColor: Colors.black,
-                                                                    child: Text("Save changes",
-                                                                        style: TextStyle(
-                                                                          // color: Colors.white,
-                                                                          fontSize:
-                                                                              15,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
+                                                                            docRef.update({
+                                                                              "pName": projectNameController.text.trim(),
+                                                                              "pDesc": projectDescController.text.trim(),
+                                                                            });
+                                                                            projectDescController.clear();
+                                                                            projectNameController.clear();
+                                                                            Navigator.pop(context);
+                                                                            Navigator.pop(context);
+                                                                            setState(() {});
+                                                                          }
+                                                                        },
+                                                                        color: Colors
+                                                                            .blueAccent,
+                                                                        textColor:
+                                                                            Colors
+                                                                                .black,
+                                                                        child: Text(
+                                                                            "Save changes",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              // color: Colors.white,
+                                                                              fontSize: 15,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            )),
+                                                                        shape:
+                                                                            RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              new BorderRadius.circular(10.0),
+                                                                          // side: BorderSide(color: Colors.black),
                                                                         )),
-                                                                    shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          new BorderRadius.circular(
-                                                                              10.0),
-                                                                      // side: BorderSide(color: Colors.black),
-                                                                    )),
                                                               ),
                                                             ],
                                                           ),
@@ -1000,10 +999,17 @@ class _MyProjectsState extends State<MyProjects> {
                                     children: [
                                       GestureDetector(
                                         onTap: () {
-                                          Navigator.pushNamed(
-                                            context, '/members',
-                                            // arguments: widget.usertype
-                                          );
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (BuildContext
+                                                          context) =>
+                                                      Members(
+                                                          project:
+                                                              projects[index]))
+                                              // '/projectDash',
+                                              //   arguments: projects[index],
+                                              );
                                         },
                                         child: Container(
                                           width: 78,
@@ -1845,23 +1851,29 @@ class _MyProjectsState extends State<MyProjects> {
                                                                       FlatButton(
                                                                     onPressed:
                                                                         () async {
-                                                                          // DocumentReference docRef =
-                                                                          customProgressIdicator(context);
-                                                  await FirebaseFirestore
-                                                      .instance
-                                                      .collection('projects')
-                                                      .doc(projects[index].id).delete();
+                                                                      // DocumentReference docRef =
+                                                                      customProgressIdicator(
+                                                                          context);
+                                                                      await FirebaseFirestore
+                                                                          .instance
+                                                                          .collection(
+                                                                              'projects')
+                                                                          .doc(projects[index]
+                                                                              .id)
+                                                                          .delete();
 
+                                                                      // project.id = docRef.id;
 
-                                              // project.id = docRef.id;
-
-                                              // docRef;
-                                              // projectDescController.clear();
-                                              // projectNameController.clear();
-                                              Navigator.pop(context);
-                                              Navigator.pop(context);
-                                              setState((){});
-                                                                        },
+                                                                      // docRef;
+                                                                      // projectDescController.clear();
+                                                                      // projectNameController.clear();
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      setState(
+                                                                          () {});
+                                                                    },
                                                                     // color: Colors.grey[900],
                                                                     textColor:
                                                                         Colors
@@ -1907,11 +1919,13 @@ class _MyProjectsState extends State<MyProjects> {
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
-                                context,
-                              MaterialPageRoute(builder: (BuildContext context) => ProjectDash(project: projects[index]))
-                              // '/projectDash',
-                              //   arguments: projects[index],
-                              );
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          ProjectDash(project: projects[index]))
+                                  // '/projectDash',
+                                  //   arguments: projects[index],
+                                  );
                             },
                             child: Column(
                                 // mainAxisAlignment: MainAxisAlignment.start,

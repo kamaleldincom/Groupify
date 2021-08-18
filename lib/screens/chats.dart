@@ -58,7 +58,7 @@ class _ChatsState extends State<Chats> {
             scrollDirection: Axis.vertical,
             // itemExtent: 100.0,
             shrinkWrap: true,
-            itemCount: 5,
+            itemCount: 3,
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {

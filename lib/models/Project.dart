@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:groupify/models/Member.dart';
+import 'package:groupify/models/User.dart';
 
 class Project {
   String id;
@@ -10,6 +12,7 @@ class Project {
   String pDesc;
   String createdAt;
   String pAvatar;
+  List<dynamic> pMembers;
   Project({
     this.id,
     this.ownerId,
@@ -18,6 +21,7 @@ class Project {
     this.pDesc,
     this.createdAt,
     this.pAvatar,
+    this.pMembers,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,6 +33,7 @@ class Project {
       'pDesc': pDesc,
       'createdAt': createdAt,
       'pAvatar': pAvatar,
+      'pMembers': pMembers,
     };
   }
 
@@ -41,6 +46,7 @@ class Project {
       pDesc: map['pDesc'],
       createdAt: map['createdAt'],
       pAvatar: map['pAvatar'],
+      pMembers: map['pMembers'],
     );
   }
 
@@ -50,6 +56,6 @@ class Project {
 
   @override
   String toString() {
-    return 'Project(id: $id, ownerId: $ownerId, ownerName: $ownerName, pName: $pName, pDesc: $pDesc, createdAt: $createdAt, pAvatar: $pAvatar)';
+    return 'Project(id: $id, ownerId: $ownerId, ownerName: $ownerName, pName: $pName, pDesc: $pDesc, createdAt: $createdAt, pAvatar: $pAvatar, pMembers: ${pMembers.length})';
   }
 }

@@ -7,6 +7,15 @@ class Community extends StatefulWidget {
 }
 
 class _CommunityState extends State<Community> {
+  String dropdownvalue = 'Choose the project';
+  var items = [
+    'Choose the project',
+    'Banana',
+    'Grapes',
+    'Orange',
+    'watermelon',
+    'Pineapple'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,37 +96,54 @@ class _CommunityState extends State<Community> {
                                     children: [
                                       Container(
                                         margin: EdgeInsets.only(bottom: 10),
+                                        padding:
+                                            EdgeInsets.symmetric(horizontal: 8),
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
+                                          color: Colors.grey[800],
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                              BorderRadius.circular(15),
                                         ),
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                              fillColor: Colors.grey[900],
-                                              filled: true,
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(15.0),
-                                                  ),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey[900],
-                                                      width: 1.0)),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(15.0),
-                                                  ),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey[700],
-                                                      width: 1.0)),
-                                              contentPadding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 5.0,
-                                                      horizontal: 10),
-                                              border: InputBorder.none,
-                                              hintText: 'Project ID'),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text("Project",
+                                                style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                )),
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  3 *
+                                                  2,
+                                              child:
+                                                  DropdownButtonHideUnderline(
+                                                child: DropdownButton(
+                                                  value: dropdownvalue,
+                                                  icon: Icon(Icons
+                                                      .keyboard_arrow_down),
+                                                  items:
+                                                      items.map((String items) {
+                                                    return DropdownMenuItem(
+                                                        value: items,
+                                                        child: Text(items));
+                                                  }).toList(),
+                                                  onChanged: (String newValue) {
+                                                    setState(() {
+                                                      dropdownvalue = newValue;
+                                                    });
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Container(

@@ -518,7 +518,7 @@ class _ProfileState extends State<Profile> {
                       scrollDirection: Axis.vertical,
                       // itemExtent: 100.0,
                       shrinkWrap: true,
-                      itemCount: 5,
+                      itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
                           padding: EdgeInsets.symmetric(horizontal: 16),

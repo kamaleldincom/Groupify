@@ -1,21 +1,33 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:groupify/models/Member.dart';
+import 'package:groupify/models/Project.dart';
+import 'package:groupify/models/User.dart';
 
 class Members extends StatefulWidget {
-  Members({Key key}) : super(key: key);
+  final Project project;
+
+  const Members({Key key, @required this.project}) : super(key: key);
+  // Members({Key key}) : super(key: key);
 
   @override
   _MembersState createState() => _MembersState();
 }
 
 class _MembersState extends State<Members> {
-  String dropdownvalue = 'Team member';
+  final TextEditingController uniIdcontroller = TextEditingController();
+  String type;
+
+  String dropdownvalue = 'Choose type';
   var items = [
-    'Team member',
+    'Choose type',
+    'Project member',
     'Supervisor',
   ];
 
   @override
   Widget build(BuildContext context) {
+    print(widget.project.toString());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -85,6 +97,7 @@ class _MembersState extends State<Members> {
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: TextField(
+                                      controller: uniIdcontroller,
                                       decoration: InputDecoration(
                                           fillColor: Colors.grey[900],
                                           filled: true,
@@ -200,15 +213,43 @@ class _MembersState extends State<Members> {
                                     SizedBox(
                                       width: 150,
                                       child: FlatButton(
-                                          onPressed: () {
-                                            Navigator.of(context)
-                                                .pushNamedAndRemoveUntil(
-                                                    // context,
-                                                    '/login',
-                                                    (Route<dynamic> route) =>
-                                                        false
-                                                    // arguments: widget.usertype
-                                                    );
+                                          onPressed: () async {
+                                            if (uniIdcontroller.text
+                                                    .trim()
+                                                    .isNotEmpty &&
+                                                dropdownvalue !=
+                                                    'Choose type') {
+                                              QuerySnapshot queryResults =
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection('users')
+                                                      .where('uni_Id_No',
+                                                          isEqualTo:
+                                                              uniIdcontroller
+                                                                  .text
+                                                                  .trim())
+                                                      .get();
+                                              if (queryResults
+                                                  .docs.isNotEmpty) {
+                                                QueryDocumentSnapshot doc =
+                                                    queryResults.docs[0];
+                                                User user = User.fromMap(doc);
+                                                print(user.toString());
+
+                                                Member member = Member(
+                                                    type: dropdownvalue,
+                                                    user: user);
+
+                                                await FirebaseFirestore.instance
+                                                    .collection('projects')
+                                                    .doc(widget.project.id)
+                                                    .update({
+                                                  'pMembers':
+                                                      FieldValue.arrayUnion(
+                                                          [member.toMap()])
+                                                });
+                                              }
+                                            }
                                           },
                                           color: Colors.blueAccent,
                                           textColor: Colors.black,
@@ -243,7 +284,7 @@ class _MembersState extends State<Members> {
             scrollDirection: Axis.vertical,
             // itemExtent: 100.0,
             shrinkWrap: true,
-            itemCount: 4,
+            itemCount: widget.project.pMembers.length,
             itemBuilder: (context, index) {
               return GestureDetector(
                 // onTap: () {
@@ -286,7 +327,7 @@ class _MembersState extends State<Members> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Loai Al-Sharee",
+                                    widget.project.pMembers[index].user.name,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: Color(0xFEFEFEFE),
